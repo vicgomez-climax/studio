@@ -15,12 +15,6 @@ const generalVideos = [
     description: 'Explore the equipment views and capabilities within WebCTRL.',
   },
   {
-    id: 'DwWkY7xZz2A',
-    title: 'Automated Logic WebCTRL - Scheduling',
-    description:
-      'Learn how to manage schedules for your building systems in WebCTRL.',
-  },
-  {
     id: 'jtSPY5lTM7c',
     title: 'Automated Logic WebCTRL - Time-Lapse™',
     description:
@@ -48,6 +42,12 @@ const healthcareVideos = [
     id: 'dSTke7OXVPs',
     title: 'Automated Logic WebCTRL - Environmental Index',
     description: 'Understand how the Environmental Index feature helps you monitor and maintain building comfort and efficiency.',
+  },
+  {
+    id: 'DwWkY7xZz2A',
+    title: 'Automated Logic WebCTRL - Scheduling',
+    description:
+      'Learn how to manage schedules for your building systems in WebCTRL.',
   },
 ]
 
