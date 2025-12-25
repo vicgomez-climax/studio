@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getPlaceholderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Award, Wrench } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 const technologies = [
   'Reliable Controls',
@@ -49,24 +49,26 @@ export function AboutUs() {
               </div>
             </div>
           </div>
-          <div className="relative min-h-[30rem] lg:min-h-full rounded-lg overflow-hidden shadow-lg">
-            {aboutImage && (
-              <Image
-                src={aboutImage.imageUrl}
-                alt={aboutImage.description}
-                data-ai-hint={aboutImage.imageHint}
-                fill
-                className="object-cover"
-              />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="text-2xl font-bold">Mechanical Air Concepts</h3>
-                <div className="flex items-center mt-2">
-                    <MapPin className="h-5 w-5 mr-2 text-accent" />
-                    <span>Miami, USA & Monterrey, Mexico</span>
+          <div className="aspect-w-4 aspect-h-3">
+             <div className="relative w-full h-full rounded-lg overflow-hidden shadow-lg">
+                {aboutImage && (
+                <Image
+                    src={aboutImage.imageUrl}
+                    alt={aboutImage.description}
+                    data-ai-hint={aboutImage.imageHint}
+                    fill
+                    className="object-cover"
+                />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                    <h3 className="text-2xl font-bold">Mechanical Air Concepts</h3>
+                    <div className="flex items-center mt-2">
+                        <MapPin className="h-5 w-5 mr-2 text-accent" />
+                        <span>Miami, USA & Monterrey, Mexico</span>
+                    </div>
                 </div>
-            </div>
+             </div>
           </div>
         </div>
       </div>
