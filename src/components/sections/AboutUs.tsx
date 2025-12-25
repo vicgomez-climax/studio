@@ -6,7 +6,7 @@ import { MapPin, Award, Wrench } from 'lucide-react';
 const technologies = [
   'Reliable Controls',
   'Tridium Niagara',
-  'Carrier View',
+  'Carrier iVu',
   'Automated Logic',
 ];
 const certifications = [
@@ -30,7 +30,7 @@ export function AboutUs() {
               Founded in 2002 as a residential HVAC contractor, Mechanical Air Concepts embarked on a significant transformation in 2015, pivoting to become a specialized controls contractor. This evolution was driven by a passion for building performance and a commitment to mastering the most sophisticated technologies in the industry.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Our journey has given us hands-on experience with a diverse range of platforms, including Reliable Controls, Tridium Niagara, Carrier View, and ultimately, Automated Logic. Today, we hold multiple NEBB certifications for Testing, Adjusting, & Balancing (TAB) and Commissioning (Cx), and are licensed Mechanical and Low Voltage Electrical contractors in the state of Florida. With offices in Miami and Monterrey, Mexico, we bring a wealth of experience and a broad perspective to every project.
+              Our journey has given us hands-on experience with a diverse range of platforms, including Reliable Controls, Tridium Niagara, Carrier iVu, and ultimately, Automated Logic. Today, we hold multiple NEBB certifications for Testing, Adjusting, & Balancing (TAB) and Commissioning (Cx), and are licensed Mechanical and Low Voltage Electrical contractors in the state of Florida. With offices in Miami and Monterrey, Mexico, we bring a wealth of experience and a broad perspective to every project.
             </p>
             <div>
               <h3 className="text-xl font-semibold mb-4 text-accent">Our Expertise Includes</h3>
