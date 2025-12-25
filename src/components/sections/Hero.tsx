@@ -1,11 +1,21 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export function Hero() {
   return (
     <section className="relative py-24 md:py-32 lg:py-40 bg-card text-primary-foreground overflow-hidden">
        <div className="absolute inset-0 bg-black/60" />
       <div className="container mx-auto px-4 text-center relative">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/images/AutomatedLogic_logo_AD_wr_300.png"
+              alt="Automated Logic Authorized Dealer"
+              width={300}
+              height={85}
+              priority
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
             Put Your Building in Cruise Control.
           </h1>
