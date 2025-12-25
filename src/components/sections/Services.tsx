@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Cog, Wrench, ShieldCheck } from 'lucide-react';
+import { Cog, Wrench, ShieldCheck, ClipboardCheck } from 'lucide-react';
 
 const services = [
   {
@@ -25,6 +25,12 @@ const services = [
     description:
       'Unbiased, precise, and repeatable Testing, Adjusting, and Balancing for air and hydronic systems to guarantee performance.',
   },
+  {
+    icon: <ClipboardCheck className="h-10 w-10 text-accent" />,
+    title: 'NEBB-Certified Commissioning',
+    description:
+      'Independent third-party commissioning ensuring your building systems meet design specifications, operate efficiently, and perform as intended throughout the entire building lifecycle.',
+  },
 ];
 
 export function Services() {
@@ -39,7 +45,7 @@ export function Services() {
             We don't just sell controls. We solve complex integration challenges to maximize the value of your building.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (
             <div
               key={service.title}
