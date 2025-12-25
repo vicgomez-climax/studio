@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { AutomatedLogicLogo } from '../logos/AutomatedLogicLogo';
 
 export function Partners() {
   return (
@@ -46,7 +45,14 @@ export function Partners() {
               <p className="text-sm font-semibold tracking-widest uppercase text-white mb-4">
                 Authorized Dealer of
               </p>
-              <AutomatedLogicLogo className="h-20 text-white" />
+              <div className="relative h-20 w-64">
+                <Image
+                  src="/images/Authorized AutomatedLogic-1.png"
+                  alt="Automated Logic Authorized Dealer"
+                  fill
+                  className="object-contain brightness-0 invert"
+                />
+              </div>
             </div>
             <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
               <Image
