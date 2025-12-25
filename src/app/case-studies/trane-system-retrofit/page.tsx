@@ -1,3 +1,4 @@
+
 import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
 import Image from 'next/image';
@@ -51,9 +52,6 @@ export default function CaseStudyPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
                 Westside Plaza
               </h1>
-              <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
-                Mechanical Air Concepts & Copasetic Mechanical
-              </p>
             </div>
           </div>
         </section>
