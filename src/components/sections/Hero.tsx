@@ -7,7 +7,7 @@ export function Hero() {
        <div className="absolute inset-0 bg-black/60" />
       <div className="container mx-auto px-4 text-center relative">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
-            Intelligent Buildings for Optimal Environments.
+            Put Your Building in Cruise Control.
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
             Our mission is to create optimal and efficient building environments that enable people and businesses to achieve their highest potential.

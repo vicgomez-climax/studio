@@ -9,8 +9,9 @@ export function Partners() {
           {/* Left Column: Text Content */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Intelligent Buildings for{' '}
-              <span className="text-green-600">Optimal Environments</span>
+              Put Your Building In{' '}
+              <span className="text-green-600">Cruise Control</span> - It's{' '}
+              <span className="text-green-600">Easier</span> Than You Think
             </h2>
             <p className="text-lg text-gray-700">
               Our industry-leading building automation system grants you
