@@ -3,26 +3,26 @@
     {
       "id": "hero-background",
       "description": "A montage of the WebCTRL building automation system interface on a monitor and tablet, showing floor plans, HVAC controls, and environmental gauges.",
-      "imageUrl": "https://storage.googleapis.com/stabl-aec29.appspot.com/assets/ma-concepts/e8785984-ff5f-4d38-8a8b-1e7d23d8c116.png",
+      "imageUrl": "/images/webctrltrio.png",
       "imageHint": "building automation"
     },
     {
       "id": "case-study-1",
-      "description": "The 355 Alhambra building in Coral Gables",
-      "imageUrl": "/images/355-Alhambra-Cir-Coral-Gables-FL-Primary-Photo-1-HighDefinition.jpg",
-      "imageHint": "alhambra building"
+      "description": "The Westside Plaza building",
+      "imageUrl": "/images/Westside.JPG",
+      "imageHint": "office building"
     },
     {
       "id": "case-study-2",
-      "description": "The 355 Alhambra building in Coral Gables",
+      "description": "Florida Memorial University campus",
       "imageUrl": "/images/355-Alhambra-Cir-Coral-Gables-FL-Primary-Photo-1-HighDefinition.jpg",
-      "imageHint": "alhambra building"
+      "imageHint": "university campus"
     },
     {
       "id": "case-study-4",
-      "description": "The 355 Alhambra building in Coral Gables",
+      "description": "An office building exterior",
       "imageUrl": "/images/355-Alhambra-Cir-Coral-Gables-FL-Primary-Photo-1-HighDefinition.jpg",
-      "imageHint": "alhambra building"
+      "imageHint": "office building"
     },
     {
       "id": "siemens-integration",
@@ -32,15 +32,15 @@
     },
     {
       "id": "johnson-controls-integration",
-      "description": "The 355 Alhambra building in Coral Gables",
-      "imageUrl": "/images/355-Alhambra-Cir-Coral-Gables-FL-Primary-Photo-1-HighDefinition.jpg",
-      "imageHint": "alhambra building"
+      "description": "The 8600 building",
+      "imageUrl": "/images/8600.jpg",
+      "imageHint": "office building"
     },
     {
       "id": "baptist-health",
-      "description": "The 355 Alhambra building in Coral Gables",
+      "description": "Baptist Health main building",
       "imageUrl": "/images/355-Alhambra-Cir-Coral-Gables-FL-Primary-Photo-1-HighDefinition.jpg",
-      "imageHint": "alhambra building"
+      "imageHint": "hospital building"
     }
   ]
 }
