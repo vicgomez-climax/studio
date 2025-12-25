@@ -74,34 +74,27 @@ export default function CaseStudyPage() {
                     Challenges
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                   The existing Trane system is obsolete and prices for parts have been climbing steadily. In addition, some features wanted by the customer could not be achieved by the system.
+                   The existing Trane system was obsolete, with steadily climbing prices for parts. The client wanted a modern web-based solution that would free them from being locked into a single-source vendor for service and parts, but a full-scale replacement was not immediately feasible.
                   </p>
                 </div>
                 
                 <div>
                   <h3 className="text-2xl font-bold tracking-tight mb-4">
-                    Customer Desires
+                    Solution: A Phased Approach to Modernization
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    The customer asked for a Web Solution and also the ability to buy parts and services from multiple sources if desired. The existing system was proprietary and single source which meant that the customer was locked when it came down to service and parts.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-bold tracking-tight mb-4">Solution</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Mechanical Air Concepts worked with Copasetic mechanical in analyzing the existing system and replacing obsolete panels. For example the condenser water system controller was retrofit with a programmable BACnet controller. The existing VAV boxes were integrated into the Tridium Platform and consecuently to ALC Webctrl system via a Trane Comm4 driver. The commercial self contained units were tied into the system as well with the driver.
+                    Initially, Mechanical Air Concepts provided a Tridium-based solution. This first phase integrated the existing Trane VAV boxes and commercial self-contained units using a Trane Comm4 driver, successfully replacing obsolete panels and delivering immediate value. The new condenser water system controller was retrofit with a programmable BACnet controller, bringing the system onto a modern platform.
+                  </p>
+                   <p className="text-muted-foreground leading-relaxed mt-4">
+                    A few years later, after seeing the power and forward-thinking direction of our Automated Logic solutions, the client chose to take the next step. They asked us to perform a full migration, unifying all three towers under a single, powerful Automated Logic WebCTRL front-end.
                   </p>
                 </div>
                  <div>
                   <h3 className="text-2xl font-bold tracking-tight mb-4">
                     Conclusion
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    The current system with the Webctrl front end allows the customer the flexibility to add VAV boxes using the old Trane controllers or new BACnet vav boxes from any vendor. This flexibility is a major advantage as the building is no longer locked in to a single source solution. The owner is also able to look at all of the information in the system via phone via the HTML5 graphics provided.
-                  </p>
-                   <p className="text-muted-foreground leading-relaxed">
-                    Since the original work was performed, we have now retrofitted the three buildings using the Automated Logic front-end and have united all buildings that used to be Trane into one unified front-end from ALC.
+                  <p className="text-muted-foreground leading-relaxed">
+                    This project highlights the trust our clients place in our long-term vision. The final, unified WebCTRL system provides the client with ultimate flexibility, allowing them to add new BACnet VAV boxes from any vendor alongside their existing Trane controllers. The building is no longer locked into a single-source solution, and the engineering team can now manage the entire property through a single, intuitive HTML5 interface, accessible from any device. This phased approach allowed the client to modernize at their own pace while achieving a truly open and future-proof system.
                   </p>
                 </div>
               </div>
