@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { AutomatedLogicLogo } from '../logos/AutomatedLogicLogo';
 
 export function Partners() {
   return (
@@ -9,20 +10,31 @@ export function Partners() {
           {/* Left Column: Text Content */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Put Your Building In <span className="text-green-600">Cruise Control</span> - It's{' '}
+              Put Your Building In{' '}
+              <span className="text-green-600">Cruise Control</span> - It's{' '}
               <span className="text-green-600">Easier</span> Than You Think
             </h2>
             <p className="text-lg text-gray-700">
-              Our industry-leading building automation system grants you real-time control and visibility of all your equipment, systems and facilities. Accessible from anywhere around the world, WebCTRL simplifies the process of managing buildings.
+              Our industry-leading building automation system grants you
+              real-time control and visibility of all your equipment, systems
+              and facilities. Accessible from anywhere around the world, WebCTRL
+              simplifies the process of managing buildings.
             </p>
             <p className="text-lg text-gray-700">
-              The WebCTRL® building automation system by Automated Logic is designed to maximize energy savings while offering a range of powerful analytics features that put your facility on autopilot.
+              The WebCTRL® building automation system by Automated Logic is
+              designed to maximize energy savings while offering a range of
+              powerful analytics features that put your facility on autopilot.
             </p>
             <p className="text-lg text-gray-700">
-              At Mechanical Air Concepts, we integrate all of these features during installation, so that your building can reach its full potential in terms of intelligence and efficiency.
+              At Mechanical Air Concepts, we integrate all of these features
+              during installation, so that your building can reach its full
+              potential in terms of intelligence and efficiency.
             </p>
             <div>
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+              <Button
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white"
+              >
                 SCHEDULE A DEMO
               </Button>
             </div>
@@ -31,25 +43,19 @@ export function Partners() {
           {/* Right Column: Image Content */}
           <div className="space-y-8">
             <div className="bg-gray-900 rounded-lg p-8 flex flex-col items-center justify-center text-center">
-                <p className="text-sm font-semibold tracking-widest uppercase text-white mb-4">
-                    Authorized Dealer of
-                </p>
-                <Image
-                    src="/images/Authorized AutomatedLogic-1.png"
-                    alt="Authorized Automated Logic and Carrier Control Expert"
-                    width={400}
-                    height={75}
-                    className="w-auto h-auto max-w-full"
-                />
+              <p className="text-sm font-semibold tracking-widest uppercase text-white mb-4">
+                Authorized Dealer of
+              </p>
+              <AutomatedLogicLogo className="h-20 text-white" />
             </div>
             <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                    src="/images/webctrltrio.png"
-                    alt="WebCTRL interface mockups showing dashboards and analytics"
-                    fill
-                    className="object-cover"
-                    data-ai-hint="dashboard analytics"
-                />
+              <Image
+                src="/images/webctrltrio.png"
+                alt="WebCTRL interface mockups showing dashboards and analytics"
+                fill
+                className="object-cover"
+                data-ai-hint="dashboard analytics"
+              />
             </div>
           </div>
         </div>
