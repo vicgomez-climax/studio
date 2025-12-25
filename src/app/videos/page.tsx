@@ -7,12 +7,12 @@ const videos = [
     title: 'Automated Logic WebCTRL',
     description: 'A brief overview of the WebCTRL building automation system.',
   },
+  {
+    id: '_ZRiQYPIVQM',
+    title: 'Automated Logic WebCTRL - Equipment',
+    description: 'Explore the equipment views and capabilities within WebCTRL.',
+  },
   // You can add more videos here
-  // {
-  //   id: 'YOUTUBE_ID_2',
-  //   title: 'Another Video Title',
-  //   description: 'Description for the second video.',
-  // },
 ];
 
 export default function VideosPage() {
