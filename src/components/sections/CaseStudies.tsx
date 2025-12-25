@@ -4,8 +4,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const caseStudies = [
   {
-    title: 'Healthcare Facility HVAC Overhaul',
-    description: 'Upgraded a 20-year-old hospital HVAC system to a modern, energy-efficient Carrier system with Automated Logic controls, reducing energy costs by 35% and improving patient comfort.',
+    title: 'Pneumatic to Modern: 5505 Blue Lagoon Drive',
+    description: 'Upgraded an outdated Trane pneumatic system to a modern, native BACnet DDC system from Automated Logic, preserving critical smoke evacuation interlocks while providing tenants with modern controls.',
     image: PlaceHolderImages.find(p => p.id === 'case-study-1'),
     link: '#',
   },
