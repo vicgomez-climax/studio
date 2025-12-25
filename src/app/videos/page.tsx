@@ -12,6 +12,18 @@ const videos = [
     title: 'Automated Logic WebCTRL - Equipment',
     description: 'Explore the equipment views and capabilities within WebCTRL.',
   },
+  {
+    id: 'DwWkY7xZz2A',
+    title: 'Automated Logic WebCTRL - Scheduling',
+    description:
+      'Learn how to manage schedules for your building systems in WebCTRL.',
+  },
+  {
+    id: 'jtSPY5lTM7c',
+    title: 'Automated Logic WebCTRL - Time-Lapse™',
+    description:
+      'Discover the power of the Time-Lapse feature for analyzing building performance.',
+  },
   // You can add more videos here
 ];
 
@@ -27,13 +39,17 @@ export default function VideosPage() {
                 Video Resources
               </h1>
               <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                Explore these videos from Automated Logic to learn more about their powerful building automation solutions.
+                Explore these videos from Automated Logic to learn more about
+                their powerful building automation solutions.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {videos.map((video) => (
-                <div key={video.id} className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg">
+                <div
+                  key={video.id}
+                  className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg"
+                >
                   <div className="aspect-w-16 aspect-h-9">
                     <iframe
                       src={`https://www.youtube.com/embed/${video.id}`}
@@ -45,8 +61,12 @@ export default function VideosPage() {
                     ></iframe>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-primary-foreground">{video.title}</h3>
-                    <p className="text-muted-foreground">{video.description}</p>
+                    <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
+                      {video.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {video.description}
+                    </p>
                   </div>
                 </div>
               ))}
