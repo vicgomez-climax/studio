@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Link from 'next/link';
 
 const caseStudies = [
   {
     title: 'Pneumatic to Modern: 5505 Blue Lagoon Drive',
     description: 'Upgraded an outdated Trane pneumatic system to a modern, native BACnet DDC system from Automated Logic, preserving critical smoke evacuation interlocks while providing tenants with modern controls.',
     image: PlaceHolderImages.find(p => p.id === 'case-study-1'),
-    link: '#',
+    link: '/case-studies/5505-blue-lagoon-drive',
   },
   {
     title: 'University Campus-Wide Control Integration',
@@ -57,8 +58,8 @@ export function CaseStudies() {
                 <p className="flex-grow text-muted-foreground mb-4">
                   {study.description}
                 </p>
-                <Button variant="link" className="p-0 h-auto self-start">
-                  Read More
+                <Button variant="link" className="p-0 h-auto self-start" asChild>
+                  <Link href={study.link}>Read More</Link>
                 </Button>
               </div>
             </div>
