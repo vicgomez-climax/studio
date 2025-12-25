@@ -8,9 +8,6 @@ import {
 export async function getSmartAuditAnalysis(
   data: SmartAuditAnalysisInput
 ): Promise<{ recommendation?: string; error?: string }> {
-  // Simulate delay as requested to enhance UX
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
   try {
     const result = await smartAuditAnalysis(data);
     return { recommendation: result.strategicRecommendation };

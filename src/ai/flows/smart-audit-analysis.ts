@@ -31,8 +31,7 @@ const smartAuditAnalysisPrompt = ai.definePrompt({
   name: 'smartAuditAnalysisPrompt',
   input: {schema: SmartAuditAnalysisInputSchema},
   output: {schema: SmartAuditAnalysisOutputSchema},
-  prompt: `You are a Senior HVAC Marketing Strategist at MAConcepts, a firm specializing in optimizing building performance.
-  Based on the provided facility challenge, generate a concise strategic recommendation that highlights MAConcepts' expertise and services, including building automation, system rescue, and NEBB TAB.
+  prompt: `Based on the provided facility challenge, generate a concise strategic recommendation.
   Facility Challenge: {{{facilityChallenge}}}`,
 });
 
