@@ -5,6 +5,7 @@ import { Services } from '@/components/sections/Services';
 import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Footer } from '@/components/sections/Footer';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { Partners } from '@/components/sections/Partners';
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <AnimatedSection>
+          <Partners />
+        </AnimatedSection>
         <AnimatedSection>
           <AuthorityCycle />
         </AnimatedSection>

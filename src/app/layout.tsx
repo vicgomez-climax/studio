@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'MAConcepts - Building Cruise Control',
-  description: 'Precision Engineering, Carrier-Backed Power, and NEBB-Certified Verification.',
+  title: 'MAConcepts | Authorized Automated Logic Dealer | Miami Building Automation',
+  description: 'Authorized Automated Logic dealer providing WebCTRL building automation, system integration, and NEBB-certified commissioning in South Florida.',
 };
 
 export default function RootLayout({
