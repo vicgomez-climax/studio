@@ -5,6 +5,7 @@ import { Services } from '@/components/sections/Services';
 import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Footer } from '@/components/sections/Footer';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import { SmartAudit } from '@/components/sections/SmartAudit';
 
 export default function Home() {
   return (
@@ -20,6 +21,9 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection>
           <CaseStudies />
+        </AnimatedSection>
+        <AnimatedSection>
+          <SmartAudit />
         </AnimatedSection>
       </main>
       <Footer />

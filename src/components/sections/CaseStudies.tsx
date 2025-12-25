@@ -12,6 +12,13 @@ const caseStudies = [
     link: '/case-studies/5505-blue-lagoon-drive',
   },
   {
+    title: 'Trane System Retrofit',
+    description:
+      'MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System, overcoming proprietary limitations.',
+    image: PlaceHolderImages.find((p) => p.id === 'case-study-4'),
+    link: '/case-studies/trane-system-retrofit',
+  },
+  {
     title: 'University Campus-Wide Control Integration',
     description:
       'Integrated disparate building automation systems across a 30-building campus into a single WebCTRL interface, providing centralized control and saving thousands in annual operational costs.',
@@ -39,7 +46,7 @@ export function CaseStudies() {
             See how we solve complex challenges for our clients.
           </p>
         </div>
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {caseStudies.map((study) => (
             <div
               key={study.title}
@@ -58,7 +65,7 @@ export function CaseStudies() {
               )}
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-semibold mb-2">
-                  <Link href={study.link} className="hover:underline text-primary-foreground">
+                   <Link href={study.link} className="hover:underline text-primary-foreground">
                     {study.title}
                   </Link>
                 </h3>

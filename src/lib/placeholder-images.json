@@ -17,6 +17,12 @@
       "description": "Commercial office building interior lobby",
       "imageUrl": "https://images.unsplash.com/photo-1586773860363-8ec8703e6aa5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBsb2JieXxlbnwwfHx8fDE3NjY2NzY3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office lobby"
+    },
+    {
+      "id": "case-study-4",
+      "description": "Modern HVAC and building control systems",
+      "imageUrl": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxidWlsZGluZyUyMGNvbnRyb2xzfGVufDB8fHx8MTc2NzI3Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "building controls"
     }
   ]
 }
