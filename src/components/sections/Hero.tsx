@@ -8,7 +8,7 @@ export function Hero() {
 
   return (
     <section className="relative bg-card text-primary-foreground overflow-hidden">
-       <div className="container mx-auto px-4 relative z-10 py-24 md:py-32 lg:py-40">
+      <div className="container mx-auto px-4 relative z-10 py-24 md:py-32 lg:py-40">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
             We Put Your Building In Cruise Control.
