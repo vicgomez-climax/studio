@@ -9,21 +9,21 @@ import { Cog, Wrench, ShieldCheck } from 'lucide-react';
 const services = [
   {
     icon: <Cog className="h-10 w-10 text-accent" />,
-    title: 'Building Automation',
+    title: 'Open-Protocol Automation',
     description:
-      'WebCTRL experts. We design, install, and service open protocol, future-proof building automation systems.',
+      'We design, install, and service future-proof building automation systems using Automated Logic, giving you full ownership and control.',
   },
   {
     icon: <Wrench className="h-10 w-10 text-accent" />,
-    title: 'System Rescue',
+    title: 'Legacy System Rescue',
     description:
-      'Breaking proprietary lock-ins. We specialize in integrating and upgrading legacy Siemens/JCI systems.',
+      'We break proprietary lock-ins by integrating and upgrading legacy systems (Siemens, JCI, Trane) without forcing a full "rip and replace."',
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-accent" />,
-    title: 'NEBB TAB',
+    title: 'NEBB-Certified TAB',
     description:
-      'Certified Testing, Adjusting, and Balancing for both air and hydronic systems. Unbiased, precise, and repeatable.',
+      'Unbiased, precise, and repeatable Testing, Adjusting, and Balancing for air and hydronic systems to guarantee performance.',
   },
 ];
 
@@ -33,10 +33,10 @@ export function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
-            Our Core Services
+            A Radically Different Approach
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Specialized solutions for complex building challenges.
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            We don't just sell controls. We solve complex integration challenges to maximize the value of your building.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

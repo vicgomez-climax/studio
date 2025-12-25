@@ -4,22 +4,22 @@ const steps = [
   {
     icon: <ClipboardCheck className="h-8 w-8 text-accent" />,
     title: 'Reality Strategy',
-    description: 'We verify physics before buying hardware.',
+    description: 'We verify the physics of your building before you ever buy new hardware, ensuring a data-driven approach.',
   },
   {
     icon: <Award className="h-8 w-8 text-accent" />,
     title: 'The Gold Standard',
-    description: 'Automated Logic (WebCTRL) + Carrier Industrial Power.',
+    description: 'We install future-proof, open-protocol systems powered by Automated Logic and backed by Carrier.',
   },
   {
     icon: <FileSearch className="h-8 w-8 text-accent" />,
     title: 'Forensic Audit',
-    description: 'NEBB-Certified unbiased verification (We sit on the Board).',
+    description: 'As NEBB board members, we provide unbiased, certified verification to find and fix hidden issues.',
   },
   {
     icon: <RefreshCw className="h-8 w-8 text-accent" />,
     title: 'Lifecycle Commissioning',
-    description: 'Resilient, healthy buildings that stay optimized.',
+    description: 'We ensure your building stays optimized for the long haul, protecting your investment and guaranteeing performance.',
   },
 ];
 
@@ -31,8 +31,8 @@ export function AuthorityCycle() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             The "Authority Cycle"
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Our 4-step process to guarantee building performance.
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            We believe building owners should be in control of their assets. Our 4-step process is designed to maximize your financial investment and untrap you from proprietary systems.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

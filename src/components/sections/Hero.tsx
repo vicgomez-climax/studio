@@ -7,15 +7,24 @@ export function Hero() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
 
   return (
-    <section className="relative bg-card text-primary-foreground overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10 py-24 md:py-32 lg:py-40">
-        <div className="text-center">
+    <section className="relative py-24 md:py-32 lg:py-40 bg-card text-primary-foreground overflow-hidden">
+        {heroImage && (
+            <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            data-ai-hint={heroImage.imageHint}
+            fill
+            className="object-cover"
+            priority
+            />
+        )}
+       <div className="absolute inset-0 bg-black/60" />
+      <div className="container mx-auto px-4 text-center relative">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
             We Put Your Building In Cruise Control.
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
-            Precision Engineering, Carrier-Backed Power, and NEBB-Certified
-            Verification.
+            Finally, a building automation partner that works to untrap you from proprietary systems and maximize your existing investment.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" variant="secondary">
@@ -25,19 +34,7 @@ export function Hero() {
               <Link href="#services">Our Services</Link>
             </Button>
           </div>
-        </div>
       </div>
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          data-ai-hint={heroImage.imageHint}
-          fill
-          className="object-cover object-center"
-          priority
-        />
-      )}
-       <div className="absolute inset-0 bg-black/70" />
     </section>
   );
 }
