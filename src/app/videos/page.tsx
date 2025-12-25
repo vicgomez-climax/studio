@@ -29,7 +29,11 @@ const videos = [
     title: 'Automated Logic WebCTRL - Environmental Index',
     description: 'Understand how the Environmental Index feature helps you monitor and maintain building comfort and efficiency.',
   },
-  // You can add more videos here
+  {
+    id: 'v0yiBvCdGRM',
+    title: 'Automated Logic WebCTRL - Fault Detection & Diagnostics',
+    description: 'Learn about Fault Detection and Diagnostics (FDD) in WebCTRL.',
+  },
 ];
 
 export default function VideosPage() {
