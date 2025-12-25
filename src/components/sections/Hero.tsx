@@ -1,15 +1,29 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Hero() {
+  const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
+
   return (
     <section className="relative py-24 md:py-32 lg:py-40 bg-card text-primary-foreground overflow-hidden">
-      <div className="absolute inset-0 bg-grid-slate-700/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] dark:bg-bottom_1px_center"></div>
+      {heroImage && (
+        <Image
+          src={heroImage.imageUrl}
+          alt={heroImage.description}
+          data-ai-hint={heroImage.imageHint}
+          fill
+          className="object-cover"
+          priority
+        />
+      )}
+      <div className="absolute inset-0 bg-black/60" />
       <div className="container mx-auto px-4 text-center relative">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-neutral-50 to-neutral-400">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
           We Put Your Building In Cruise Control.
         </h1>
-        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-primary-foreground/80">
+        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
           Precision Engineering, Carrier-Backed Power, and NEBB-Certified
           Verification.
         </p>

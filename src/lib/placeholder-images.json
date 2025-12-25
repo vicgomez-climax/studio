@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "hero-background",
+      "description": "A montage of the WebCTRL building automation system interface on a monitor and tablet, showing floor plans, HVAC controls, and environmental gauges.",
+      "imageUrl": "https://storage.googleapis.com/stabl-aec29.appspot.com/assets/ma-concepts/1f1d1933-2580-4966-9e5c-29b369c735d4.png",
+      "imageHint": "building automation"
+    },
+    {
       "id": "case-study-1",
       "description": "Modern glass and concrete office building in Miami",
       "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvZmZpY2UlMjBidWlsZGluZyUyMG1pYW1pfGVufDB8fHx8MTc2NjY3OTQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
