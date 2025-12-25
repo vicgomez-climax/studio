@@ -1,7 +1,9 @@
+'use client';
+
 import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
 
-const videos = [
+const generalVideos = [
   {
     id: 'e-OzlagIaMQ',
     title: 'Automated Logic WebCTRL',
@@ -25,11 +27,6 @@ const videos = [
       'Discover the power of the Time-Lapse feature for analyzing building performance.',
   },
   {
-    id: 'dSTke7OXVPs',
-    title: 'Automated Logic WebCTRL - Environmental Index',
-    description: 'Understand how the Environmental Index feature helps you monitor and maintain building comfort and efficiency.',
-  },
-  {
     id: 'v0yiBvCdGRM',
     title: 'Automated Logic WebCTRL - Fault Detection & Diagnostics',
     description: 'Learn about Fault Detection and Diagnostics (FDD) in WebCTRL.',
@@ -39,12 +36,45 @@ const videos = [
     title: 'Automated Logic Short',
     description: 'A short video from Automated Logic.',
   },
-  {
+];
+
+const healthcareVideos = [
+    {
     id: 'a5UGOqSUXrQ',
     title: 'Automated Logic in Healthcare',
     description: 'Learn how Automated Logic provides solutions for the healthcare industry.',
   },
-];
+  {
+    id: 'dSTke7OXVPs',
+    title: 'Automated Logic WebCTRL - Environmental Index',
+    description: 'Understand how the Environmental Index feature helps you monitor and maintain building comfort and efficiency.',
+  },
+]
+
+const VideoCard = ({ video }: { video: { id: string; title: string; description: string } }) => (
+  <div
+    className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg"
+  >
+    <div className="aspect-w-16 aspect-h-9">
+      <iframe
+        src={`https://www.youtube.com/embed/${video.id}`}
+        title={video.title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="w-full h-full"
+      ></iframe>
+    </div>
+    <div className="p-6">
+      <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
+        {video.title}
+      </h3>
+      <p className="text-muted-foreground">
+        {video.description}
+      </p>
+    </div>
+  </div>
+);
 
 export default function VideosPage() {
   return (
@@ -62,34 +92,25 @@ export default function VideosPage() {
                 their powerful building automation solutions.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {videos.map((video) => (
-                <div
-                  key={video.id}
-                  className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg"
-                >
-                  <div className="aspect-w-16 aspect-h-9">
-                    <iframe
-                      src={`https://www.youtube.com/embed/${video.id}`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
-                      {video.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {video.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">Healthcare Solutions</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {healthcareVideos.map((video) => (
+                  <VideoCard key={video.id} video={video} />
+                ))}
+              </div>
             </div>
+
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">General Resources</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {generalVideos.map((video) => (
+                  <VideoCard key={video.id} video={video} />
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
       </main>
