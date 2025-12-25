@@ -31,8 +31,7 @@ const smartAuditAnalysisPrompt = ai.definePrompt({
   name: 'smartAuditAnalysisPrompt',
   input: {schema: SmartAuditAnalysisInputSchema},
   output: {schema: SmartAuditAnalysisOutputSchema},
-  prompt: `Based on the provided facility challenge, generate a concise strategic recommendation.
-  Facility Challenge: {{{facilityChallenge}}}`,
+  prompt: `Generate a strategic recommendation for this facility challenge: {{{facilityChallenge}}}`,
 });
 
 const smartAuditAnalysisFlow = ai.defineFlow(
