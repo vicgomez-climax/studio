@@ -5,32 +5,32 @@ import { Button } from '@/components/ui/button';
 
 const caseStudies = [
   {
-    title: 'Pneumatic to Modern: 5505 Blue Lagoon Drive',
+    title: 'Lennar HQ: Trane & Pneumatic Retrofit',
     description:
-      'Upgraded an outdated Trane pneumatic system to a modern, native BACnet DDC system from Automated Logic, preserving critical smoke evacuation interlocks while providing tenants with modern controls.',
+      'Upgraded a hybrid Trane proprietary system with pneumatic VAVs to a modern WebCTRL front-end, preserving the smoke evacuation system and maximizing the owner’s existing investment.',
     image: PlaceHolderImages.find((p) => p.id === 'case-study-1'),
     link: '/case-studies/5505-blue-lagoon-drive',
   },
   {
-    title: 'Trane System Retrofit',
+    title: '355 Alhambra: Siemens System Rescue',
     description:
-      'MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System, overcoming proprietary limitations.',
-    image: PlaceHolderImages.find((p) => p.id === 'case-study-4'),
-    link: '/case-studies/trane-system-retrofit',
+      'Rescued a client from a forced, full-system upgrade by integrating their Siemens Insight system into WebCTRL, preserving 95% of their hardware investment while providing a modern interface.',
+    image: PlaceHolderImages.find((p) => p.id === 'siemens-integration'),
+    link: '/case-studies/355-alhambra-siemens-retrofit',
   },
   {
-    title: 'University Campus-Wide Control Integration',
+    title: 'Florida Memorial University: Campus-Wide Integration',
     description:
-      'Integrated disparate building automation systems across a 30-building campus into a single WebCTRL interface, providing centralized control and saving thousands in annual operational costs.',
+      'Unified 35 buildings running Siemens Apogee into a single, web-accessible WebCTRL interface, eliminating single-user limitations and providing a comprehensive campus-wide view.',
     image: PlaceHolderImages.find((p) => p.id === 'case-study-2'),
-    link: '#',
+    link: '/case-studies/florida-memorial-university-siemens-integration',
   },
   {
-    title: 'Commercial High-Rise Legacy System Rescue',
+    title: '8600 Building: Johnson Controls N2 Integration',
     description:
-      'Rescued a proprietary JCI system in a 40-story office tower, migrating to an open-protocol system without major downtime, empowering the facility team with greater control and flexibility.',
-    image: PlaceHolderImages.find((p) => p.id === 'case-study-3'),
-    link: '#',
+      'Preserved the owner’s investment in Johnson Controls N2 hardware by integrating 63 VAVs and multiple RTUs into WebCTRL, enabling a gradual upgrade path and modern features.',
+    image: PlaceHolderImages.find((p) => p.id === 'johnson-controls-integration'),
+    link: '/case-studies/8600-building-johnson-n2-integration',
   },
 ];
 

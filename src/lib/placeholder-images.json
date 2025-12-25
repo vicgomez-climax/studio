@@ -29,6 +29,18 @@
       "description": "Modern HVAC and building control systems",
       "imageUrl": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxidWlsZGluZyUyMGNvbnRyb2xzfGVufDB8fHx8MTc2NzI3Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "building controls"
+    },
+    {
+      "id": "siemens-integration",
+      "description": "Siemens logo on a modern building",
+      "imageUrl": "https://images.unsplash.com/photo-1629895281985-78035252277c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaWVtZW5zfGVufDB8fHx8MTc2NzI3Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "siemens building"
+    },
+    {
+      "id": "johnson-controls-integration",
+      "description": "Johnson Controls logo in a corporate setting",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-577380e25948?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidWlsZGluZyUyMGludGVyaW9yfGVufDB8fHx8MTc2NzI3Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "building interior"
     }
   ]
 }
