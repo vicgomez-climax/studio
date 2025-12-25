@@ -75,7 +75,7 @@ export default function CaseStudyPage() {
             <div className="grid lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-8">
                 <div>
-                  <h2 className="text-3xl font-bold tracking-tight mb-4 text-accent">
+                  <h2 className="text-3xl font-bold tracking-tight text-accent">
                     Project Overview
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
@@ -121,7 +121,7 @@ export default function CaseStudyPage() {
                   <CardContent className="space-y-4 text-sm">
                     {projectSpecs.map((spec) => (
                       <div key={spec.label}>
-                        <p className="font-semibold text-primary-foreground">{spec.label}</p>
+                        <p className="font-semibold">{spec.label}</p>
                         <p className="text-muted-foreground">{spec.value}</p>
                       </div>
                     ))}
