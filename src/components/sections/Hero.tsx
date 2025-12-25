@@ -10,7 +10,7 @@ export function Hero() {
             We Put Your Building In Cruise Control.
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
-            Finally, a building automation partner that works to untrap you from proprietary systems and maximize your existing investment.
+            Our mission: To Achieve Optimal and Efficient Building Environments For People and Businesses.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" variant="secondary">

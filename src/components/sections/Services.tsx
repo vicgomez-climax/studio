@@ -41,8 +41,8 @@ export function Services() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
             A Radically Different Approach
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            We don't just sell controls. We solve complex integration challenges to maximize the value of your building.
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            Our services are designed to achieve one goal: creating optimal and efficient building environments that enable people and businesses to achieve their highest potential.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

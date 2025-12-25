@@ -5,12 +5,12 @@ const steps = [
   {
     icon: <ClipboardCheck className="h-8 w-8 text-accent" />,
     title: 'Data-Driven Assessment',
-    description: 'We verify actual building physics through rigorous NEBB testing and measurement before recommending any solutions.',
+    description: 'We live our value of integrity by verifying actual building physics through rigorous NEBB testing before recommending any solutions.',
   },
   {
     icon: <Award className="h-8 w-8 text-accent" />,
     title: 'Open-Protocol Systems',
-    description: 'As an Authorized Dealer of Automated Logic and Carrier Control Expert, we design vendor-neutral BACnet solutions that give you control and flexibility.',
+    description: 'As an Authorized Dealer of Automated Logic, we design vendor-neutral BACnet solutions that give you control and flexibility.',
   },
   {
     icon: <FileSearch className="h-8 w-8 text-accent" />,
@@ -19,8 +19,8 @@ const steps = [
   },
   {
     icon: <RefreshCw className="h-8 w-8 text-accent" />,
-    title: 'Lifecycle Optimization',
-    description: 'WebCTRL enables ongoing benchmarking, maintenance, and performance improvement over your building\'s entire lifecycle.',
+    title: 'Continuous Improvement',
+    description: 'We enable lifecycle optimization through daily improvement of our people, processes, and products to ensure your environment is always optimal.',
   },
 ];
 
@@ -36,7 +36,7 @@ export function AuthorityCycle() {
             If You Can't Measure It, You Can't Control It
           </p>
           <p className="mt-2 text-muted-foreground max-w-3xl mx-auto">
-            Our NEBB-certified test and balance methodology applied to building controls ensures measurable performance and continuous optimization throughout your facility's lifecycle.
+            Our NEBB-certified methodology ensures measurable performance and continuous optimization, creating building environments that help people and businesses achieve their highest potential.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
