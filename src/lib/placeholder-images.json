@@ -26,9 +26,9 @@
     },
     {
       "id": "siemens-integration",
-      "description": "Siemens logo on a modern building",
-      "imageUrl": "https://images.unsplash.com/photo-1629895281985-78035252277c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaWVtZW5zfGVufDB8fHx8MTc2NzI3Nzc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "siemens building"
+      "description": "The 355 Alhambra building in Coral Gables",
+      "imageUrl": "https://storage.googleapis.com/stabl-aec29.appspot.com/assets/user/2L6Rj9zX10uJ1i70T6V0Jd.jpg",
+      "imageHint": "alhambra building"
     },
     {
       "id": "johnson-controls-integration",
