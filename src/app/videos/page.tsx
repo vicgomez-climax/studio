@@ -39,6 +39,11 @@ const videos = [
     title: 'Automated Logic Short',
     description: 'A short video from Automated Logic.',
   },
+  {
+    id: 'a5UGOqSUXrQ',
+    title: 'Automated Logic in Healthcare',
+    description: 'Learn how Automated Logic provides solutions for the healthcare industry.',
+  },
 ];
 
 export default function VideosPage() {
