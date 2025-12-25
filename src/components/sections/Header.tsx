@@ -7,9 +7,10 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '#methodology', label: 'Methodology' },
-  { href: '#services', label: 'Services' },
-  { href: '#case-studies', label: 'Case Studies' },
+  { href: '/#methodology', label: 'Methodology' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#case-studies', label: 'Case Studies' },
+  { href: '/videos', label: 'Videos' },
 ];
 
 export function Header() {
