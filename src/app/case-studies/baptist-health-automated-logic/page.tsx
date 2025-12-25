@@ -12,8 +12,8 @@ import { CheckCircle } from 'lucide-react';
 
 const projectSpecs = [
   { label: 'Project Type', value: 'Vendor Transition / System Support' },
-  { label: 'Building Count', value: '35 Buildings' },
-  { label: 'Mission Critical Facilities', value: '17' },
+  { label: 'Building Count', value: '47 buildings' },
+  { label: 'Mission Critical Facilities', value: '25 critical sites' },
   { label: 'System', value: 'Automated Logic WebCTRL' },
   { label: 'Key Benefit', value: 'Vendor independence, investment preservation' },
 ];
