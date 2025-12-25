@@ -1,0 +1,70 @@
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+const caseStudies = [
+  {
+    title: 'Healthcare Facility HVAC Overhaul',
+    description: 'Upgraded a 20-year-old hospital HVAC system to a modern, energy-efficient Carrier system with Automated Logic controls, reducing energy costs by 35% and improving patient comfort.',
+    image: PlaceHolderImages.find(p => p.id === 'case-study-1'),
+    link: '#',
+  },
+  {
+    title: 'University Campus-Wide Control Integration',
+    description: 'Integrated disparate building automation systems across a 30-building campus into a single WebCTRL interface, providing centralized control and saving thousands in annual operational costs.',
+    image: PlaceHolderImages.find(p => p.id === 'case-study-2'),
+    link: '#',
+  },
+  {
+    title: 'Commercial High-Rise Legacy System Rescue',
+    description: 'Rescued a proprietary JCI system in a 40-story office tower, migrating to an open-protocol system without major downtime, empowering the facility team with greater control and flexibility.',
+    image: PlaceHolderImages.find(p => p.id === 'case-study-3'),
+    link: '#',
+  },
+];
+
+export function CaseStudies() {
+  return (
+    <section id="case-studies" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Proven Results
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            See how we solve complex challenges for our clients.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          {caseStudies.map((study) => (
+            <div
+              key={study.title}
+              className="group flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-accent/20 hover:-translate-y-1"
+            >
+              {study.image && (
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={study.image.imageUrl}
+                    alt={study.image.description}
+                    data-ai-hint={study.image.imageHint}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
+                <p className="flex-grow text-muted-foreground mb-4">
+                  {study.description}
+                </p>
+                <Button variant="link" className="p-0 h-auto self-start">
+                  Read More
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
