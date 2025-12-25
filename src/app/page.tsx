@@ -1,6 +1,7 @@
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
 import { AuthorityCycle } from '@/components/sections/AuthorityCycle';
+import { AboutUs } from '@/components/sections/AboutUs';
 import { Services } from '@/components/sections/Services';
 import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Footer } from '@/components/sections/Footer';
@@ -14,6 +15,9 @@ export default function Home() {
         <Hero />
         <AnimatedSection>
           <AuthorityCycle />
+        </AnimatedSection>
+        <AnimatedSection>
+          <AboutUs />
         </AnimatedSection>
         <AnimatedSection>
           <Services />
