@@ -64,6 +64,15 @@ const educationVideos = [
   },
 ];
 
+const dataCenterVideos = [
+  {
+    id: '0vHuQRPW6Qg',
+    title: 'Automated Logic for Data Centers',
+    description: 'Discover how Automated Logic provides mission-critical solutions for data centers.',
+  },
+];
+
+
 const VideoCard = ({ video }: { video: { id: string; title: string; description: string } }) => (
   <div
     className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg"
@@ -106,6 +115,15 @@ export default function VideosPage() {
               </p>
             </div>
             
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">Data Center Solutions</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {dataCenterVideos.map((video) => (
+                  <VideoCard key={video.id} video={video} />
+                ))}
+              </div>
+            </div>
+
             <div className="mb-16">
               <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">Healthcare Solutions</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
