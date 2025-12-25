@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getPlaceholderImages } from '@/lib/placeholder-images';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 export function CaseStudies() {
+  const PlaceHolderImages = getPlaceholderImages();
   const caseStudies = [
     {
       title: 'Lennar HQ: Trane & Pneumatic Retrofit',
@@ -42,7 +43,7 @@ export function CaseStudies() {
     {
       title: 'Westside Plaza',
       description:
-        'MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System, overcoming proprietary limitations.',
+        'MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System across three four-story buildings.',
       image: PlaceHolderImages.find((p) => p.id === 'case-study-4'),
       link: '/case-studies/trane-system-retrofit',
     },

@@ -1,7 +1,7 @@
 import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getPlaceholderImages } from '@/lib/placeholder-images';
 import {
   Card,
   CardContent,
@@ -28,7 +28,7 @@ const strategies = [
 ];
 
 export default function CaseStudyPage() {
-  const heroImage = PlaceHolderImages.find((p) => p.id === 'case-study-2');
+  const heroImage = getPlaceholderImages().find((p) => p.id === 'case-study-2');
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
