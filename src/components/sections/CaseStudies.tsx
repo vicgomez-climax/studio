@@ -65,7 +65,7 @@ export function CaseStudies() {
               )}
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-semibold mb-2">
-                   <Link href={study.link} className="hover:underline text-primary-foreground">
+                   <Link href={study.link} className="hover:underline text-primary">
                     {study.title}
                   </Link>
                 </h3>

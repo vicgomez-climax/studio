@@ -32,7 +32,7 @@ export function Services() {
     <section id="services" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
             Our Core Services
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -47,7 +47,7 @@ export function Services() {
             >
               <div className="pt-0">
                 {service.icon}
-                <h3 className="mt-4 text-2xl font-semibold">{service.title}</h3>
+                <h3 className="mt-4 text-2xl font-semibold text-primary">{service.title}</h3>
               </div>
               <p className="flex-grow text-muted-foreground mt-2">{service.description}</p>
             </div>

@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-primary-foreground font-bold text-xl"
+            className="flex items-center gap-2 text-primary font-bold text-xl"
           >
             <Building className="h-6 w-6 text-accent" />
             <span className="font-extrabold">
@@ -35,7 +35,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
@@ -48,7 +48,7 @@ export function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-primary-foreground hover:text-primary-foreground"
+              className="text-foreground hover:text-foreground"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               <span className="sr-only">Toggle menu</span>
@@ -69,7 +69,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-lg font-medium text-primary-foreground/80 hover:text-primary-foreground"
+              className="text-lg font-medium text-foreground/80 hover:text-foreground"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
