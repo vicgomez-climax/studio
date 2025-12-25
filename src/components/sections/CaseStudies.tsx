@@ -32,6 +32,19 @@ const caseStudies = [
     image: PlaceHolderImages.find((p) => p.id === 'johnson-controls-integration'),
     link: '/case-studies/8600-building-johnson-n2-integration',
   },
+   {
+    title: 'Baptist Health: Vendor Freedom with Automated Logic',
+    description: 'When the owner decided to change vendors, their Automated Logic open system allowed a seamless transition, preserving their entire investment and ensuring continuous support without a learning curve.',
+    image: PlaceHolderImages.find((p) => p.id === 'baptist-health'),
+    link: '/case-studies/baptist-health-automated-logic',
+  },
+  {
+    title: 'Trane System Retrofit',
+    description:
+      'MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System, overcoming proprietary limitations.',
+    image: PlaceHolderImages.find((p) => p.id === 'case-study-4'),
+    link: '/case-studies/trane-system-retrofit',
+  },
 ];
 
 export function CaseStudies() {
@@ -46,7 +59,7 @@ export function CaseStudies() {
             See how we solve complex challenges for our clients.
           </p>
         </div>
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {caseStudies.map((study) => (
             <div
               key={study.title}
