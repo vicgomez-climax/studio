@@ -47,10 +47,10 @@ export function Partners() {
               </p>
               <div className="relative h-20 w-64">
                 <Image
-                  src="/images/Authorized AutomatedLogic-1.png"
+                  src="/images/AutomatedLogic_logo_AD_wr_300.png"
                   alt="Automated Logic Authorized Dealer"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain"
                 />
               </div>
             </div>
