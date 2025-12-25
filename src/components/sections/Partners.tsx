@@ -43,7 +43,6 @@ export function Partners() {
           <div className="space-y-8">
             <div className="bg-gray-900 rounded-lg p-8 flex flex-col items-center justify-center text-center">
               <p className="text-sm font-semibold tracking-widest uppercase text-white mb-4">
-                Authorized Dealer of
               </p>
               <Image
                 src="/images/AutomatedLogic_logo_AD_wr_300.png"
