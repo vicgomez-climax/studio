@@ -20,8 +20,8 @@ export function Partners() {
         </div>
         <div className="text-center mt-8">
           <p className="text-base text-muted-foreground">
-            Certified Automated Logic and Carrier i-Vu dealer serving South
-            Florida
+            Authorized Dealer of Automated Logic and Carrier Control Expert
+            serving South Florida
           </p>
         </div>
       </div>

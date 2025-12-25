@@ -10,7 +10,7 @@ const steps = [
   {
     icon: <Award className="h-8 w-8 text-accent" />,
     title: 'Open-Protocol Systems',
-    description: 'As certified Automated Logic and Carrier i-Vu dealers, we design vendor-neutral BACnet solutions that give you control and flexibility.',
+    description: 'As an Authorized Dealer of Automated Logic and Carrier Control Expert, we design vendor-neutral BACnet solutions that give you control and flexibility.',
   },
   {
     icon: <FileSearch className="h-8 w-8 text-accent" />,

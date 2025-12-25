@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'MAConcepts | Authorized Automated Logic Dealer | Miami Building Automation',
-  description: 'Authorized Automated Logic dealer providing WebCTRL building automation, system integration, and NEBB-certified commissioning in South Florida.',
+  description: 'Authorized Dealer of Automated Logic and Carrier Control Expert providing WebCTRL building automation, system integration, and NEBB-certified commissioning in South Florida.',
 };
 
 export default function RootLayout({
