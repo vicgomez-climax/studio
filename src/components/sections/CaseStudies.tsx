@@ -41,29 +41,34 @@ export function CaseStudies() {
         </div>
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
           {caseStudies.map((study) => (
-            <div key={study.title}>
-              <Link href={study.link} className="text-accent hover:underline mb-2 inline-block">
-                Read More
-              </Link>
-              <div
-                className="group flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-accent/20 hover:-translate-y-1"
-              >
-                {study.image && (
-                  <div className="relative h-48 w-full">
-                    <Image
-                      src={study.image.imageUrl}
-                      alt={study.image.description}
-                      data-ai-hint={study.image.imageHint}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
-                  <p className="flex-grow text-muted-foreground mb-4">
-                    {study.description}
-                  </p>
+            <div
+              key={study.title}
+              className="group flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-accent/20 hover:-translate-y-1"
+            >
+              {study.image && (
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={study.image.imageUrl}
+                    alt={study.image.description}
+                    data-ai-hint={study.image.imageHint}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-xl font-semibold mb-2">
+                  <Link href={study.link} className="hover:underline text-primary-foreground">
+                    {study.title}
+                  </Link>
+                </h3>
+                <p className="flex-grow text-muted-foreground mb-4">
+                  {study.description}
+                </p>
+                <div className="mt-auto">
+                   <Button asChild variant="accent">
+                    <Link href={study.link}>Read More</Link>
+                  </Button>
                 </div>
               </div>
             </div>
