@@ -25,7 +25,9 @@ export function Header() {
             className="flex items-center gap-2 text-primary-foreground font-bold text-xl"
           >
             <Building className="h-6 w-6 text-accent" />
-            <span>MAConcepts</span>
+            <span className="font-extrabold">
+              MechanicalAir<span className="font-semibold text-accent/80">Concepts</span>
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
