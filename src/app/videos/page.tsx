@@ -44,7 +44,15 @@ const healthcareVideos = [
     description:
       'Learn how to manage schedules for your building systems in WebCTRL.',
   },
-]
+];
+
+const educationVideos = [
+  {
+    id: '8sUF1Jx8Fvw',
+    title: 'Automated Logic in Education',
+    description: 'See how Automated Logic creates ideal learning environments in educational facilities.',
+  },
+];
 
 const VideoCard = ({ video }: { video: { id: string; title: string; description: string } }) => (
   <div
@@ -92,6 +100,15 @@ export default function VideosPage() {
               <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">Healthcare Solutions</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {healthcareVideos.map((video) => (
+                  <VideoCard key={video.id} video={video} />
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">Education Solutions</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {educationVideos.map((video) => (
                   <VideoCard key={video.id} video={video} />
                 ))}
               </div>
