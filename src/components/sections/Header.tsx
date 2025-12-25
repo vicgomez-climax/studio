@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: '#methodology', label: 'Methodology' },
   { href: '#services', label: 'Services' },
-  { href: '#audit', label: 'Smart Audit' },
 ];
 
 export function Header() {
@@ -38,9 +37,6 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="accent">
-              <Link href="#audit">Request Smart Audit</Link>
-            </Button>
           </nav>
 
           <div className="md:hidden">
@@ -75,14 +71,6 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Button
-            asChild
-            variant="accent"
-            className="mt-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Link href="#audit">Request Smart Audit</Link>
-          </Button>
         </nav>
       </div>
     </header>

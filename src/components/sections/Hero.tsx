@@ -18,7 +18,7 @@ export function Hero() {
             <Link href="#methodology">Our Methodology</Link>
           </Button>
           <Button asChild size="lg" variant="accent">
-            <Link href="#audit">Request Smart Audit</Link>
+            <Link href="#services">Our Services</Link>
           </Button>
         </div>
       </div>
