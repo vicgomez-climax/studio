@@ -13,7 +13,7 @@ import { CheckCircle } from 'lucide-react';
 const projectSpecs = [
   { label: 'Project Type', value: 'Retrofit' },
   { label: 'Installation Type', value: 'Condenser Water System, Trane System Integration, Front End Development Using Niagara 4' },
-  { label: 'Area', value: '80,000 SqFT' },
+  { label: 'Area', value: '80,000 SqFT (Three 4-story buildings)' },
   { label: 'Equipment Installed', value: 'LGR100 / Automated Logic Webctrl, Tridium Niagara 4, Trane Comm4 Drivers' },
   { label: 'Integration', value: 'BACnet® /Proprietary Trane Comm4' },
   { label: 'Network', value: 'EIA-485, BACnet' },
@@ -49,7 +49,7 @@ export default function CaseStudyPage() {
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
             <div className="container mx-auto px-4 text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                Trane System Retrofit
+                Westside Plaza
               </h1>
               <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
                 Mechanical Air Concepts & Copasetic Mechanical
@@ -67,7 +67,7 @@ export default function CaseStudyPage() {
                     Project Overview
                   </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Mechanical Air Concepts, teamed up with Copasetic mechanical to perform this retrofit of the existing Trane control system to a new state of the art Automated Logic WebCtrl System.
+                    Mechanical Air Concepts, teamed up with Copasetic mechanical to perform this retrofit of the existing Trane control system to a new state of the art Automated Logic WebCtrl System across three four-story buildings at Westside Plaza.
                   </p>
                 </div>
 

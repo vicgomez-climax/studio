@@ -39,7 +39,7 @@ const caseStudies = [
     link: '/case-studies/baptist-health-automated-logic',
   },
   {
-    title: 'Trane System Retrofit',
+    title: 'Westside Plaza',
     description:
       'MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System, overcoming proprietary limitations.',
     image: PlaceHolderImages.find((p) => p.id === 'case-study-4'),
@@ -55,8 +55,11 @@ export function CaseStudies() {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
             Proven Results
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            See how we solve complex challenges for our clients.
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            We don't just sell controls. We solve complex integration
+            challenges to maximize the value of your building. See how we've
+            helped clients untrap themselves from proprietary systems and achieve
+            long-term operational excellence.
           </p>
         </div>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
