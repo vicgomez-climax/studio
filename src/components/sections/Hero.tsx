@@ -10,7 +10,7 @@ export function Hero() {
             We Put Your Building In Cruise Control.
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/80">
-            Our mission: To Achieve Optimal and Efficient Building Environments For People and Businesses.
+            Our mission is to create optimal and efficient building environments that enable people and businesses to achieve their highest potential.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" variant="secondary">
