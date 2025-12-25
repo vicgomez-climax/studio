@@ -6,32 +6,38 @@ import { Footer } from '@/components/sections/Footer';
 const generalVideos = [
   {
     id: 'Me0btqgsb44',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL Demo',
     description: 'A comprehensive demonstration of the WebCTRL building automation system.',
   },
   {
     id: 'e-OzlagIaMQ',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL',
     description: 'A brief overview of the WebCTRL building automation system.',
   },
   {
     id: '_ZRiQYPIVQM',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL - Equipment',
     description: 'Explore the equipment views and capabilities within WebCTRL.',
   },
   {
     id: 'jtSPY5lTM7c',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL - Time-Lapse™',
     description:
       'Discover the power of the Time-Lapse feature for analyzing building performance.',
   },
   {
     id: 'v0yiBvCdGRM',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL - Fault Detection & Diagnostics',
     description: 'Learn about Fault Detection and Diagnostics (FDD) in WebCTRL.',
   },
   {
     id: '6K7oEIdZYK4',
+    source: 'youtube',
     title: 'Tour of ASHRAE\'s Net-Zero Energy Headquarters',
     description: 'Explore the cutting-edge, net-zero energy headquarters of ASHRAE, the global leader in sustainable building technology.',
   }
@@ -40,16 +46,19 @@ const generalVideos = [
 const healthcareVideos = [
     {
     id: 'a5UGOqSUXrQ',
+    source: 'youtube',
     title: 'Automated Logic in Healthcare',
     description: 'Learn how Automated Logic provides solutions for the healthcare industry.',
   },
   {
     id: 'dSTke7OXVPs',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL - Environmental Index',
     description: 'Understand how the Environmental Index feature helps you monitor and maintain building comfort and efficiency.',
   },
   {
     id: 'DwWkY7xZz2A',
+    source: 'youtube',
     title: 'Automated Logic WebCTRL - Scheduling',
     description:
       'Learn how to manage schedules for your building systems in WebCTRL.',
@@ -59,6 +68,7 @@ const healthcareVideos = [
 const educationVideos = [
   {
     id: '8sUF1Jx8Fvw',
+    source: 'youtube',
     title: 'Automated Logic in Education',
     description: 'See how Automated Logic creates ideal learning environments in educational facilities.',
   },
@@ -67,36 +77,59 @@ const educationVideos = [
 const dataCenterVideos = [
   {
     id: '0vHuQRPW6Qg',
+    source: 'youtube',
     title: 'Automated Logic for Data Centers',
     description: 'Discover how Automated Logic provides mission-critical solutions for data centers.',
   },
 ];
 
+const nebbVideos = [
+  {
+    id: '942041819',
+    source: 'vimeo',
+    title: 'NEBB Commissioning & Controls for Headquarters',
+    description: 'Our company provided the Automated Logic controls for the NEBB headquarters, ensuring top-tier performance and certification.',
+  },
+];
 
-const VideoCard = ({ video }: { video: { id: string; title: string; description: string } }) => (
-  <div
-    className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg"
-  >
-    <div className="aspect-w-16 aspect-h-9">
-      <iframe
-        src={`https://www.youtube.com/embed/${video.id}`}
-        title={video.title}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className="w-full h-full"
-      ></iframe>
+type Video = {
+  id: string;
+  source: 'youtube' | 'vimeo';
+  title: string;
+  description: string;
+};
+
+const VideoCard = ({ video }: { video: Video }) => {
+  const embedUrl = video.source === 'vimeo' 
+    ? `https://player.vimeo.com/video/${video.id}`
+    : `https://www.youtube.com/embed/${video.id}`;
+
+  return (
+    <div
+      className="flex flex-col bg-card rounded-lg overflow-hidden shadow-lg"
+    >
+      <div className="aspect-w-16 aspect-h-9">
+        <iframe
+          src={embedUrl}
+          title={video.title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full"
+        ></iframe>
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
+          {video.title}
+        </h3>
+        <p className="text-muted-foreground">
+          {video.description}
+        </p>
+      </div>
     </div>
-    <div className="p-6">
-      <h3 className="text-xl font-semibold mb-2 text-primary-foreground">
-        {video.title}
-      </h3>
-      <p className="text-muted-foreground">
-        {video.description}
-      </p>
-    </div>
-  </div>
-);
+  );
+};
+
 
 export default function VideosPage() {
   return (
@@ -115,6 +148,15 @@ export default function VideosPage() {
               </p>
             </div>
             
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">NEBB & Testing, Adjusting, and Balancing (TAB)</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {nebbVideos.map((video) => (
+                  <VideoCard key={video.id} video={video} />
+                ))}
+              </div>
+            </div>
+
             <div className="mb-16">
               <h2 className="text-3xl font-bold tracking-tight text-primary-foreground mb-8">Data Center Solutions</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
