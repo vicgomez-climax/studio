@@ -5,6 +5,11 @@ import { Footer } from '@/components/sections/Footer';
 
 const generalVideos = [
   {
+    id: 'Me0btqgsb44',
+    title: 'Automated Logic WebCTRL Demo',
+    description: 'A comprehensive demonstration of the WebCTRL building automation system.',
+  },
+  {
     id: 'e-OzlagIaMQ',
     title: 'Automated Logic WebCTRL',
     description: 'A brief overview of the WebCTRL building automation system.',
