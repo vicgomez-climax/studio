@@ -99,8 +99,11 @@ export default function CaseStudyPage() {
                   <h3 className="text-2xl font-bold tracking-tight mb-4">
                     Conclusion
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
                     The current system with the Webctrl front end allows the customer the flexibility to add VAV boxes using the old Trane controllers or new BACnet vav boxes from any vendor. This flexibility is a major advantage as the building is no longer locked in to a single source solution. The owner is also able to look at all of the information in the system via phone via the HTML5 graphics provided.
+                  </p>
+                   <p className="text-muted-foreground leading-relaxed">
+                    Since the original work was performed, we have now retrofitted the three buildings using the Automated Logic front-end and have united all buildings that used to be Trane into one unified front-end from ALC.
                   </p>
                 </div>
               </div>
