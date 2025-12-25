@@ -34,14 +34,14 @@ const methodologies = [
     title: 'Methodology for Commissioning (Cx)',
     icon: <ClipboardCheck className="h-6 w-6 mr-4 text-accent" />,
     content:
-      'Our NEBB-certified commissioning process provides independent, third-party verification that all building systems perform according to the Owner\'s Project Requirements (OPR). We conduct comprehensive reviews of design documents, verify proper installation, and execute functional performance tests on mechanical, electrical, and control systems. This ensures systems operate correctly, reduces operational costs, and provides a baseline for future performance measurement.',
+      "Our NEBB-certified commissioning process provides independent, third-party verification that all building systems perform according to the Owner's Project Requirements (OPR). We conduct comprehensive reviews of design documents, verify proper installation, and execute functional performance tests on mechanical, electrical, and control systems. This ensures systems operate correctly, reduces operational costs, and provides a baseline for future performance measurement.",
   },
   {
     value: 'item-5',
     title: 'Methodology for Retro-Commissioning (RCx)',
     icon: <History className="h-6 w-6 mr-4 text-accent" />,
     content:
-      'Retro-commissioning is a systematic process for identifying and correcting operational issues in existing buildings that were never formally commissioned. We conduct a deep forensic analysis of your current operations, using data logging and functional testing to uncover hidden inefficiencies. The result is a targeted plan to optimize your building\'s performance, leading to significant energy savings, improved occupant comfort, and extended equipment life.',
+      'Our NEBB-certified Retro-Commissioning (RCx) process is a systematic investigation to identify and resolve operational issues in existing buildings. We conduct a deep forensic analysis of your current systems, using data logging and functional testing to uncover hidden inefficiencies. Following the implementation of corrective measures, we leave you with a customized performance dashboard and a clear benchmarking framework. This empowers your team to continuously monitor, measure, and maintain optimal performance, delivering sustained energy savings and lasting value.',
   },
 ];
 
