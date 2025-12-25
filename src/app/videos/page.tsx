@@ -25,6 +25,11 @@ const generalVideos = [
     title: 'Automated Logic WebCTRL - Fault Detection & Diagnostics',
     description: 'Learn about Fault Detection and Diagnostics (FDD) in WebCTRL.',
   },
+  {
+    id: '6K7oEIdZYK4',
+    title: 'Tour of ASHRAE\'s Net-Zero Energy Headquarters',
+    description: 'Explore the cutting-edge, net-zero energy headquarters of ASHRAE, the global leader in sustainable building technology.',
+  }
 ];
 
 const healthcareVideos = [
