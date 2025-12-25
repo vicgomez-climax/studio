@@ -45,14 +45,13 @@ export function Partners() {
               <p className="text-sm font-semibold tracking-widest uppercase text-white mb-4">
                 Authorized Dealer of
               </p>
-              <div className="relative h-20 w-64">
-                <Image
-                  src="/images/AutomatedLogic_logo_AD_wr_300.png"
-                  alt="Automated Logic Authorized Dealer"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <Image
+                src="/images/AutomatedLogic_logo_AD_wr_300.png"
+                alt="Automated Logic Authorized Dealer"
+                width={300}
+                height={75}
+                className="object-contain"
+              />
             </div>
             <div className="relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
               <Image
