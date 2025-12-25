@@ -1,5 +1,4 @@
-import { AutomatedLogicLogo } from '@/components/logos/AutomatedLogicLogo';
-import { CarrierLogo } from '../logos/CarrierLogo';
+import Image from 'next/image';
 
 export function Partners() {
   return (
@@ -10,9 +9,14 @@ export function Partners() {
             Authorized Dealer
           </h2>
         </div>
-        <div className="flex justify-center items-center gap-12 md:gap-16 flex-wrap">
-          <AutomatedLogicLogo className="h-12 md:h-16 text-primary-foreground" />
-          <CarrierLogo className="h-12 md:h-14" />
+        <div className="flex justify-center items-center">
+          <Image
+            src="/images/Authorized dealer.png"
+            alt="Automated Logic and Carrier Authorized Dealer"
+            width={500}
+            height={100}
+            className="h-auto w-auto max-w-sm md:max-w-md"
+          />
         </div>
         <div className="text-center mt-8">
           <p className="text-base text-muted-foreground">
