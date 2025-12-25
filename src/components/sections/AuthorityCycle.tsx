@@ -1,26 +1,47 @@
 
-import { ClipboardCheck, Award, FileSearch, RefreshCw } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Building, Factory, Scale, ClipboardCheck, History } from 'lucide-react';
 
-const steps = [
+const methodologies = [
   {
-    icon: <ClipboardCheck className="h-8 w-8 text-accent" />,
-    title: 'Data-Driven Assessment',
-    description: 'We live our value of integrity by verifying actual building physics through rigorous NEBB testing before recommending any solutions.',
+    value: 'item-1',
+    title: 'Methodology for New Construction',
+    icon: <Building className="h-6 w-6 mr-4 text-accent" />,
+    content:
+      'Our approach for new construction centers on proactive engagement from the design phase forward. By embedding open-protocol BACnet standards into the project specifications, we ensure you own your system from day one. We collaborate with architects and engineers to review designs, guaranteeing that the building automation system is optimized for performance, flexibility, and long-term value, preventing vendor lock-in before the first wall is even built.',
   },
   {
-    icon: <Award className="h-8 w-8 text-accent" />,
-    title: 'Open-Protocol Systems',
-    description: 'As an Authorized Dealer of Automated Logic, we design vendor-neutral BACnet solutions that give you control and flexibility.',
+    value: 'item-2',
+    title: 'Methodology for Existing Buildings',
+    icon: <Factory className="h-6 w-6 mr-4 text-accent" />,
+    content:
+      "For existing buildings, our first step is a data-driven assessment to understand the current system's capabilities and limitations. We specialize in integrating with legacy and proprietary systems, creating a phased modernization plan that preserves your existing hardware investment. Our goal is to 'untrap' you from obsolete technology, providing a modern, unified WebCTRL interface that enhances control and visibility without the need for a costly full-scale replacement.",
   },
   {
-    icon: <FileSearch className="h-8 w-8 text-accent" />,
-    title: 'Forensic Commissioning',
-    description: 'NEBB-certified Testing, Adjusting, and Balancing reveals hidden performance issues and validates proper system operation.',
+    value: 'item-3',
+    title: 'Methodology for Testing & Balancing (TAB)',
+    icon: <Scale className="h-6 w-6 mr-4 text-accent" />,
+    content:
+      'As a NEBB-certified firm, we follow a rigorous, repeatable process for Testing, Adjusting, and Balancing. We use calibrated instrumentation to precisely measure and adjust air and hydronic systems to meet design specifications. This meticulous, data-driven process optimizes comfort, improves indoor air quality, and ensures energy efficiency by eliminating waste and guaranteeing that your mechanical systems perform as intended.',
   },
   {
-    icon: <RefreshCw className="h-8 w-8 text-accent" />,
-    title: 'Continuous Improvement',
-    description: 'We enable lifecycle optimization through daily improvement of our people, processes, and products to ensure your environment is always optimal.',
+    value: 'item-4',
+    title: 'Methodology for Commissioning (Cx)',
+    icon: <ClipboardCheck className="h-6 w-6 mr-4 text-accent" />,
+    content:
+      'Our NEBB-certified commissioning process provides independent, third-party verification that all building systems perform according to the Owner\'s Project Requirements (OPR). We conduct comprehensive reviews of design documents, verify proper installation, and execute functional performance tests on mechanical, electrical, and control systems. This ensures systems operate correctly, reduces operational costs, and provides a baseline for future performance measurement.',
+  },
+  {
+    value: 'item-5',
+    title: 'Methodology for Retro-Commissioning (RCx)',
+    icon: <History className="h-6 w-6 mr-4 text-accent" />,
+    content:
+      'Retro-commissioning is a systematic process for identifying and correcting operational issues in existing buildings that were never formally commissioned. We conduct a deep forensic analysis of your current operations, using data logging and functional testing to uncover hidden inefficiencies. The result is a targeted plan to optimize your building\'s performance, leading to significant energy savings, improved occupant comfort, and extended equipment life.',
   },
 ];
 
@@ -36,19 +57,25 @@ export function AuthorityCycle() {
             If You Can't Measure It, You Can't Control It
           </p>
           <p className="mt-2 text-muted-foreground max-w-3xl mx-auto">
-            Our NEBB-certified methodology ensures measurable performance and continuous optimization, creating building environments that help people and businesses achieve their highest potential.
+            Our NEBB-certified methodologies ensure measurable performance and continuous optimization across the entire building lifecycle. We provide tailored strategies for every scenario, guaranteeing results you can see and measure.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-card mb-6">
-                {step.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-muted-foreground">{step.description}</p>
-            </div>
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible defaultValue="item-1" className="w-full">
+            {methodologies.map((item) => (
+              <AccordionItem value={item.value} key={item.value}>
+                <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                  <div className="flex items-center">
+                    {item.icon}
+                    {item.title}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base leading-relaxed pl-14">
+                  {item.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>
