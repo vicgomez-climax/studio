@@ -49,7 +49,7 @@ export function AboutUs() {
               </div>
             </div>
           </div>
-          <div className="relative h-80 lg:h-full rounded-lg overflow-hidden shadow-lg">
+          <div className="relative min-h-[30rem] lg:min-h-full rounded-lg overflow-hidden shadow-lg">
             {aboutImage && (
               <Image
                 src={aboutImage.imageUrl}
