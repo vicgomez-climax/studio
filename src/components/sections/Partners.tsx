@@ -9,25 +9,17 @@ export function Partners() {
           {/* Left Column: Text Content */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Make Building Management{' '}
-              <span className="text-green-600">Easier</span> With{' '}
-              <span className="text-green-600">Smart</span> Building Controls
+              Put Your Building In <span className="text-green-600">Cruise Control</span> - It's{' '}
+              <span className="text-green-600">Easier</span> Than You Think
             </h2>
             <p className="text-lg text-gray-700">
-              Our industry-leading building automation system grants you
-              real-time control and visibility of all your equipment, systems
-              and facilities. Accessible from anywhere around the world, this
-              system simplifies the process of managing buildings.
+              Our industry-leading building automation system grants you real-time control and visibility of all your equipment, systems and facilities. Accessible from anywhere around the world, WebCTRL simplifies the process of managing buildings.
             </p>
             <p className="text-lg text-gray-700">
-              The WebCTRL® building automation system by Automated Logic is
-              designed to maximize energy savings while offering a range of
-              powerful analytics features.
+              The WebCTRL® building automation system by Automated Logic is designed to maximize energy savings while offering a range of powerful analytics features that put your facility on autopilot.
             </p>
             <p className="text-lg text-gray-700">
-              At MAConcepts, we integrate all of these features during
-              installation, so that your building can reach its full potential
-              in terms of intelligence and efficiency.
+              At Mechanical Air Concepts, we integrate all of these features during installation, so that your building can reach its full potential in terms of intelligence and efficiency.
             </p>
             <div>
               <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
