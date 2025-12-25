@@ -24,6 +24,11 @@ const videos = [
     description:
       'Discover the power of the Time-Lapse feature for analyzing building performance.',
   },
+  {
+    id: 'dSTke7OXVPs',
+    title: 'Automated Logic WebCTRL - Environmental Index',
+    description: 'Understand how the Environmental Index feature helps you monitor and maintain building comfort and efficiency.',
+  },
   // You can add more videos here
 ];
 
