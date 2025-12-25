@@ -29,9 +29,9 @@ export function Partners() {
           </div>
 
           {/* Right Column: Image Content */}
-          <div className="space-y-6 text-center">
-             <div className="flex flex-col items-center">
-                <p className="text-sm font-semibold tracking-widest uppercase text-gray-800 mb-4">
+          <div className="space-y-8">
+            <div className="bg-gray-900 rounded-lg p-8 flex flex-col items-center justify-center text-center">
+                <p className="text-sm font-semibold tracking-widest uppercase text-white mb-4">
                     Authorized Dealer of
                 </p>
                 <Image
