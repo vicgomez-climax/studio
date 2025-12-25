@@ -18,14 +18,14 @@ export function CaseStudies() {
       title: "355 Alhambra: Siemens System Rescue",
       description:
         "Rescued a client from a forced, full-system upgrade by integrating their Siemens Insight system into WebCTRL, preserving 95% of their hardware investment while providing a modern interface.",
-      image: placeholderImages.find((p) => p.id === "case-study-1"),
+      image: placeholderImages.find((p) => p.id === "siemens-integration"),
       link: "/case-studies/355-alhambra-siemens-retrofit",
     },
     {
       title: "Florida Memorial University: Campus-Wide Integration",
       description:
         "Unified 35 buildings running Siemens Apogee into a single, web-accessible WebCTRL interface, eliminating single-user limitations and providing a comprehensive campus-wide view.",
-      image: placeholderImages.find((p) => p.id === "case-study-1"),
+      image: placeholderImages.find((p) => p.id === "case-study-2"),
       link: "/case-studies/florida-memorial-university-siemens-integration",
     },
     {
@@ -33,7 +33,7 @@ export function CaseStudies() {
       description:
         "Preserved the owner's investment in Johnson Controls N2 hardware by integrating 63 VAVs and multiple RTUs into WebCTRL, enabling a gradual upgrade path and modern features.",
       image: placeholderImages.find(
-        (p) => p.id === "case-study-1"
+        (p) => p.id === "johnson-controls-integration"
       ),
       link: "/case-studies/8600-building-johnson-n2-integration",
     },
@@ -41,14 +41,14 @@ export function CaseStudies() {
       title: "Baptist Health: Vendor Freedom with Automated Logic",
       description:
         "When the owner decided to change vendors, their Automated Logic open system allowed a seamless transition, preserving their entire investment and ensuring continuous support without a learning curve.",
-      image: placeholderImages.find((p) => p.id === "case-study-1"),
+      image: placeholderImages.find((p) => p.id === "baptist-health"),
       link: "/case-studies/baptist-health-automated-logic",
     },
     {
       title: "Westside Plaza",
       description:
         "MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System across three four-story buildings.",
-      image: placeholderImages.find((p) => p.id === "case-study-1"),
+      image: placeholderImages.find((p) => p.id === "case-study-4"),
       link: "/case-studies/trane-system-retrofit",
     },
   ]
