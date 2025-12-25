@@ -9,4 +9,4 @@ export type ImagePlaceholder = {
 
 export function getPlaceholderImages(): ImagePlaceholder[] {
   return data.placeholderImages;
-};
+}
