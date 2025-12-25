@@ -6,20 +6,23 @@ import Link from 'next/link';
 const caseStudies = [
   {
     title: 'Pneumatic to Modern: 5505 Blue Lagoon Drive',
-    description: 'Upgraded an outdated Trane pneumatic system to a modern, native BACnet DDC system from Automated Logic, preserving critical smoke evacuation interlocks while providing tenants with modern controls.',
-    image: PlaceHolderImages.find(p => p.id === 'case-study-1'),
+    description:
+      'Upgraded an outdated Trane pneumatic system to a modern, native BACnet DDC system from Automated Logic, preserving critical smoke evacuation interlocks while providing tenants with modern controls.',
+    image: PlaceHolderImages.find((p) => p.id === 'case-study-1'),
     link: '/case-studies/5505-blue-lagoon-drive',
   },
   {
     title: 'University Campus-Wide Control Integration',
-    description: 'Integrated disparate building automation systems across a 30-building campus into a single WebCTRL interface, providing centralized control and saving thousands in annual operational costs.',
-    image: PlaceHolderImages.find(p => p.id === 'case-study-2'),
+    description:
+      'Integrated disparate building automation systems across a 30-building campus into a single WebCTRL interface, providing centralized control and saving thousands in annual operational costs.',
+    image: PlaceHolderImages.find((p) => p.id === 'case-study-2'),
     link: '#',
   },
   {
     title: 'Commercial High-Rise Legacy System Rescue',
-    description: 'Rescued a proprietary JCI system in a 40-story office tower, migrating to an open-protocol system without major downtime, empowering the facility team with greater control and flexibility.',
-    image: PlaceHolderImages.find(p => p.id === 'case-study-3'),
+    description:
+      'Rescued a proprietary JCI system in a 40-story office tower, migrating to an open-protocol system without major downtime, empowering the facility team with greater control and flexibility.',
+    image: PlaceHolderImages.find((p) => p.id === 'case-study-3'),
     link: '#',
   },
 ];
