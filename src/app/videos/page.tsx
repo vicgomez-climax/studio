@@ -34,6 +34,11 @@ const videos = [
     title: 'Automated Logic WebCTRL - Fault Detection & Diagnostics',
     description: 'Learn about Fault Detection and Diagnostics (FDD) in WebCTRL.',
   },
+  {
+    id: 'QL0rDbHzKng',
+    title: 'Automated Logic Short',
+    description: 'A short video from Automated Logic.',
+  },
 ];
 
 export default function VideosPage() {
