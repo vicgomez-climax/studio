@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { AutomatedLogicLogo } from '../logos/AutomatedLogicLogo';
@@ -20,7 +21,7 @@ export function Partners() {
               simplifies the process of managing buildings.
             </p>
             <p className="text-lg text-gray-700">
-              The WebCTRL® building automation system by Automated Logic is
+              The WebCTRL® building automation system by AutomatedLogic is
               designed to maximize energy savings while offering a range of
               powerful analytics features that put your facility on autopilot.
             </p>
