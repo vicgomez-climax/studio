@@ -7,7 +7,6 @@ import Image from 'next/image';
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const completeMsgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -15,8 +14,6 @@ export function Hero() {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    
-    const completeMsg = completeMsgRef.current;
 
     const ALC_COLORS = {
       RED: '#cc2936',
@@ -33,7 +30,7 @@ export function Hero() {
     let scanX = 0;
     let width: number, height: number;
     let isWaiting = false;
-    let optimizationTextAlpha = 0;
+    let frameCount = 0; // For flashing animation
 
     const ROOM_NAMES = [
       'Lobby', 'Office 101', 'Conf. Room', 'IT Closet', 'Breakroom', 'Office 102',
@@ -80,12 +77,13 @@ export function Hero() {
         ctx.lineWidth = 1;
         ctx.strokeRect(this.x, this.y, this.w, this.h);
         
+        const fontSize = Math.min(12, this.w / 8, this.h / 5);
         ctx.fillStyle = 'rgba(255,255,255,0.7)';
-        ctx.font = '12px "Roboto Mono", monospace';
+        ctx.font = `${fontSize}px "Roboto Mono", monospace`;
         ctx.fillText(this.name, this.x + 8, this.y + 18);
 
         const temp = this.isOptimized ? "72.0°" : this.badTemp;
-        ctx.font = `bold 14px "Roboto Mono", monospace`;
+        ctx.font = `bold ${fontSize + 2}px "Roboto Mono", monospace`;
         ctx.fillStyle = this.isOptimized ? "#fff" : "rgba(255,255,255,0.5)";
         ctx.fillText(temp, this.x + 8, this.y + 36);
       }
@@ -135,8 +133,6 @@ export function Hero() {
       generateFloorPlan(bX, bY, bW, bH, 4);
       scanX = bX - 100;
       isWaiting = false;
-      optimizationTextAlpha = 0;
-      if (completeMsg) completeMsg.style.opacity = '0';
     }
 
     function resize() {
@@ -147,7 +143,8 @@ export function Hero() {
 
     function draw() {
       if (!ctx) return;
-      let animationFrameId = requestAnimationFrame(draw);
+      frameCount++;
+      requestAnimationFrame(draw);
       
       ctx.fillStyle = ALC_COLORS.BG;
       ctx.fillRect(0, 0, width, height);
@@ -172,7 +169,11 @@ export function Hero() {
         z.draw();
       });
 
+      const buildingStartX = zones.length > 0 ? zones.reduce((min, z) => Math.min(min, z.x), Infinity) : 0;
       const buildingEndX = zones.length > 0 ? zones.reduce((max, z) => Math.max(max, z.x + z.w), 0) : width;
+      const buildingMinY = zones.length > 0 ? zones.reduce((min, z) => Math.min(min, z.y), Infinity) : 0;
+      const buildingMaxY = zones.length > 0 ? zones.reduce((max, z) => Math.max(max, z.y + z.h), 0) : 0;
+      const buildingCenterX = buildingStartX + (buildingEndX - buildingStartX) / 2;
 
       if (scanX < buildingEndX + 100) {
         scanX += 4;
@@ -189,10 +190,10 @@ export function Hero() {
         ctx.moveTo(scanX, 0);
         ctx.lineTo(scanX, height);
         ctx.stroke();
+
       } else {
         if (!isWaiting) {
           isWaiting = true;
-          if (completeMsg) completeMsg.style.opacity = '1';
           setTimeout(() => {
              zones.forEach(z => {
                 z.isOptimized = false;
@@ -201,6 +202,32 @@ export function Hero() {
             createNewBuilding();
           }, 4000);
         }
+      }
+
+      if (isWaiting) {
+          // Draw "AUTOPILOT COMPLETE" below the building
+          ctx.font = 'bold 16px "Roboto Mono", monospace';
+          ctx.fillStyle = ALC_COLORS.GREEN;
+          ctx.textAlign = 'center';
+          ctx.globalAlpha = Math.min(1, (frameCount - (scanX/4)) / 60); // Fade in
+          ctx.fillText("AUTOPILOT COMPLETE", buildingCenterX, buildingMaxY + 30);
+          ctx.globalAlpha = 1;
+          ctx.textAlign = 'left';
+      } else {
+          // Draw "ANALYZING" bubble above the building
+          const flashAlpha = 0.6 + Math.sin(frameCount * 0.1) * 0.4;
+          ctx.globalAlpha = flashAlpha;
+          ctx.fillStyle = ALC_COLORS.RED;
+          ctx.beginPath();
+          ctx.roundRect(buildingCenterX - 60, buildingMinY - 35, 120, 25, 12);
+          ctx.fill();
+          
+          ctx.fillStyle = 'white';
+          ctx.font = 'bold 10px "Roboto Mono", monospace';
+          ctx.textAlign = 'center';
+          ctx.fillText('● ANALYZING', buildingCenterX, buildingMinY - 19);
+          ctx.globalAlpha = 1.0;
+          ctx.textAlign = 'left';
       }
     }
     
@@ -246,7 +273,6 @@ export function Hero() {
             <Link href="#services">Our Services</Link>
           </Button>
         </div>
-        <div ref={completeMsgRef} id="complete-msg">AUTOPILOT COMPLETE</div>
       </div>
     </section>
   );
