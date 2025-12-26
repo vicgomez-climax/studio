@@ -5,7 +5,6 @@
 - Hero Section with Call to Action: Displays a compelling headline, subhead, and buttons linking to methodology and a smart audit.
 - Authority Cycle Visualization: Presents the 4-step process with clear icons and descriptions, emphasizing the company's expertise.
 - Services Grid Display: Showcases the company's main services (Building Automation, System Rescue, NEBB TAB) in a grid layout.
-- Interactive 'Smart Audit': Simulates an AI interface where users can input facility challenges and receive a pre-written strategic recommendation after a loading animation.
 - Mobile Menu: Responsive mobile menu that uses vanilla JavaScript.
 - Scroll Animations: Apply subtle animations as the user scrolls down the page, using vanilla JavaScript.
 
