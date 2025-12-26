@@ -160,7 +160,6 @@ export function Hero() {
           setTimeout(createNewBuilding, 4000);
         }
         
-        // Fade in the "Optimization Complete" text
         if (optimizationTextAlpha < 1) {
             optimizationTextAlpha += 0.02;
         }
@@ -171,15 +170,19 @@ export function Hero() {
             const minY = zones.reduce((min, z) => Math.min(min, z.y), Infinity);
             const maxY = zones.reduce((max, z) => Math.max(max, z.y + z.h), -Infinity);
 
-            const centerX = minX + (maxX - minX) / 2;
+            const gridWidth = maxX - minX;
+            const centerX = minX + gridWidth / 2;
             const centerY = minY + (maxY - minY) / 2;
+
+            const fontSize = gridWidth / 10;
 
             ctx.globalAlpha = Math.min(1, optimizationTextAlpha);
             ctx.fillStyle = 'white';
-            ctx.font = 'bold 16px "Inter", sans-serif';
+            ctx.font = `bold ${fontSize}px "Inter", sans-serif`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('Optimization Complete', centerX, centerY);
+            ctx.fillText('Optimization', centerX, centerY - fontSize / 2);
+            ctx.fillText('Complete', centerX, centerY + fontSize / 2);
             ctx.globalAlpha = 1;
         }
       }
