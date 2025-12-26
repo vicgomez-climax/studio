@@ -17,15 +17,20 @@ export function Hero() {
 
     let width: number, height: number;
     let buildings: Building[] = [];
-    
+    let animationFrameId: number;
+
     const CONFIG = {
-        speed: 25,
-        fov: 600,
-        viewDist: 3000,
-        nearPlane: 100
+        fov: 700,
+        speed: 30,
+        viewDistance: 3000,
+        camHeight: 250,
     };
 
-    const ship = { x: 0, width: 60 };
+    const ship = {
+        x: 0, 
+        targetX: 0,
+        width: 40
+    };
 
     class Building {
         w: number;
@@ -35,31 +40,31 @@ export function Hero() {
         color: string;
         sideColor: string;
 
-        constructor(zStart: number) {
+        constructor(z: number) {
             this.w = 150 + Math.random() * 200; 
-            this.h = 400 + Math.random() * 600; 
-            this.x = (Math.random() * 6000) - 3000;
-            this.z = zStart;
+            this.h = 500 + Math.random() * 800; 
+            this.z = z;
+            
+            const laneOffset = (Math.random() - 0.5) * 800;
+            
+            if (Math.random() > 0.5) {
+                this.x = laneOffset + 400 + (this.w/2); 
+            } else {
+                this.x = laneOffset - 400 - (this.w/2);
+            }
+            
             this.color = '#ffffff'; 
-            this.sideColor = '#cccccc';
+            this.sideColor = '#dcdcdc';
         }
     }
-
-    let animationFrameId: number;
 
     function init() {
         resize();
         window.addEventListener('resize', resize);
         
-        window.addEventListener('mousemove', e => {
-            const ratio = (e.clientX / width) * 2 - 1;
-            ship.x = ratio * 2000;
-        });
-
-        for(let z=500; z<CONFIG.viewDist; z+=300) {
+        for(let z = 500; z < CONFIG.viewDistance; z += 300) {
             buildings.push(new Building(z));
         }
-
         loop();
     }
 
@@ -73,19 +78,40 @@ export function Hero() {
 
         ctx.fillStyle = "#87CEEB"; 
         ctx.fillRect(0, 0, width, height);
-        
+
         const cx = width / 2;
         const cy = height / 2;
 
-        if(buildings.length > 0 && buildings[buildings.length-1].z < CONFIG.viewDist) {
+        let closestBuilding = null;
+        // The buildings are sorted by z, so the first one is the closest
+        for(let b of buildings) {
+            if(b.z > 0 && b.z < 1000) {
+                closestBuilding = b;
+                break;
+            }
+        }
+
+        if (closestBuilding) {
+            if (closestBuilding.x > ship.x) {
+                ship.targetX = closestBuilding.x - (closestBuilding.w/2) - 300;
+            } 
+            else {
+                ship.targetX = closestBuilding.x + (closestBuilding.w/2) + 300;
+            }
+        } else {
+            ship.targetX = ship.targetX * 0.99;
+        }
+
+        ship.x += (ship.targetX - ship.x) * 0.05;
+
+        if (buildings[buildings.length-1].z < CONFIG.viewDistance) {
             buildings.push(new Building(buildings[buildings.length-1].z + 300));
         }
 
-        for(let i = buildings.length - 1; i >= 0; i--) {
+        for (let i = buildings.length - 1; i >= 0; i--) {
             let b = buildings[i];
             b.z -= CONFIG.speed;
-
-            if(b.z < -200) {
+            if (b.z < -200) {
                 buildings.splice(i, 1);
             }
         }
@@ -93,16 +119,30 @@ export function Hero() {
         buildings.sort((a, b) => b.z - a.z);
 
         buildings.forEach(b => {
-            if(b.z < CONFIG.nearPlane) return;
+            if (b.z < 10) return;
+
+            let alpha = 1.0;
+            
+            if (b.z < 400) {
+                alpha = (b.z) / 400; 
+            }
+            
+            if (b.z > 2000) {
+                alpha = Math.min(alpha, 1 - (b.z - 2000) / 1000);
+            }
+
+            if (alpha <= 0.01) return;
+
+            ctx.globalAlpha = alpha;
 
             const scale = CONFIG.fov / b.z;
             const x = cx + ((b.x - ship.x) * scale);
-            const y = cy + (150 * scale);
+            const y = cy + (CONFIG.camHeight * scale);
             const w = b.w * scale;
             const h = b.h * scale;
 
             ctx.fillStyle = b.sideColor;
-            const sideSize = w * 0.4; 
+            const sideSize = w * 0.6;
             if (x > cx) {
                 ctx.fillRect(x - w/2 - sideSize, y - h, sideSize, h);
             } else {
@@ -111,8 +151,10 @@ export function Hero() {
 
             ctx.fillStyle = b.color;
             ctx.fillRect(x - w/2, y - h, w, h);
+            
+            ctx.globalAlpha = 1.0;
         });
-        
+
         animationFrameId = requestAnimationFrame(loop);
     }
 
