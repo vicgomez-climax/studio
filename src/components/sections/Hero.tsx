@@ -15,184 +15,190 @@ export function Hero() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const ALC_COLORS = {
+      RED: '#cc2936',
+      YELLOW: '#f9dc5c',
+      BLUE: '#2c5291',
+      GREEN: '#00cc66',
+      BG: '#060a14',
+      WALL: 'rgba(255, 255, 255, 0.1)',
+      SCAN: '#00ff88',
+    };
+
+    let zones: Zone[] = [];
+    let scanX = 0;
     let width: number, height: number;
-    let buildings: Building[] = [];
+    let isWaiting = false;
     let animationFrameId: number;
 
-    const CONFIG = {
-        fov: 700,
-        speed: 30,
-        viewDistance: 3000,
-        camHeight: 250,
-    };
+    class Zone {
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+      startColor: string;
+      currentColor: string;
+      isOptimized: boolean;
 
-    const ship = {
-        x: 0, 
-        targetX: 0,
-        width: 40
-    };
+      constructor(x: number, y: number, w: number, h: number) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        const palette = [ALC_COLORS.RED, ALC_COLORS.YELLOW, ALC_COLORS.BLUE];
+        this.startColor = palette[Math.floor(Math.random() * palette.length)];
+        this.currentColor = this.startColor;
+        this.isOptimized = false;
+      }
 
-    class Building {
-        w: number;
-        h: number;
-        x: number;
-        z: number;
-        color: string;
-        sideColor: string;
+      draw() {
+        if (!ctx) return;
+        ctx.fillStyle = this.currentColor;
+        ctx.fillRect(this.x, this.y, this.w, this.h);
 
-        constructor(z: number) {
-            this.w = 150 + Math.random() * 200; 
-            this.h = 500 + Math.random() * 800; 
-            this.z = z;
-            
-            const laneOffset = (Math.random() - 0.5) * 800;
-            
-            if (Math.random() > 0.5) {
-                this.x = laneOffset + 400 + (this.w/2); 
-            } else {
-                this.x = laneOffset - 400 - (this.w/2);
-            }
-            
-            this.color = '#ffffff'; 
-            this.sideColor = '#dcdcdc';
+        ctx.strokeStyle = ALC_COLORS.WALL;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(this.x, this.y, this.w, this.h);
+      }
+
+      update(currentScanX: number) {
+        if (currentScanX > this.x && !this.isOptimized) {
+          this.isOptimized = true;
+          this.currentColor = ALC_COLORS.GREEN;
         }
+      }
     }
 
-    function init() {
-        resize();
-        window.addEventListener('resize', resize);
-        
-        for(let z = 500; z < CONFIG.viewDistance; z += 300) {
-            buildings.push(new Building(z));
-        }
-        loop();
+    function generateFloorPlan(x: number, y: number, w: number, h: number, depth: number) {
+      const minSize = 50;
+      if (depth <= 0 || (w < minSize * 2 && h < minSize * 2)) {
+        zones.push(new Zone(x, y, w, h));
+        return;
+      }
+
+      const splitHorizontally = Math.random() > 0.5;
+
+      if (splitHorizontally && h > minSize * 2) {
+        const splitH = minSize + Math.random() * (h - minSize * 2);
+        generateFloorPlan(x, y, w, splitH, depth - 1);
+        generateFloorPlan(x, y + splitH, w, h - splitH, depth - 1);
+      } else if (w > minSize * 2) {
+        const splitW = minSize + Math.random() * (w - minSize * 2);
+        generateFloorPlan(x, y, splitW, h, depth - 1);
+        generateFloorPlan(x + splitW, y, w - splitW, h, depth - 1);
+      } else {
+        zones.push(new Zone(x, y, w, h));
+      }
+    }
+
+    function createNewBuilding() {
+      zones = [];
+      const bW = width * (0.4 + Math.random() * 0.15);
+      const bH = height * (0.5 + Math.random() * 0.2);
+      const bX = width * 0.9 - bW;
+      const bY = (height - bH) / 2;
+
+      generateFloorPlan(bX, bY, bW, bH, 4);
+      scanX = bX - 100;
+      isWaiting = false;
     }
 
     function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      createNewBuilding();
     }
 
-    function loop() {
-        if (!ctx) return;
+    function draw() {
+      if (!ctx) return;
+      ctx.fillStyle = ALC_COLORS.BG;
+      ctx.fillRect(0, 0, width, height);
 
-        ctx.fillStyle = "#87CEEB"; 
-        ctx.fillRect(0, 0, width, height);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < width; i += 60) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, height);
+        ctx.stroke();
+      }
+      for (let j = 0; j < height; j += 60) {
+        ctx.beginPath();
+        ctx.moveTo(0, j);
+        ctx.lineTo(width, j);
+        ctx.stroke();
+      }
 
-        const cx = width / 2;
-        const cy = height / 2;
+      zones.forEach((z) => {
+        z.update(scanX);
+        z.draw();
+      });
 
-        let closestBuilding = null;
-        // The buildings are sorted by z, so the first one is the closest
-        for(let b of buildings) {
-            if(b.z > 0 && b.z < 1000) {
-                closestBuilding = b;
-                break;
-            }
+      const buildingEndX = zones.length > 0 ? zones.reduce((max, z) => Math.max(max, z.x + z.w), 0) : width;
+
+      if (scanX < buildingEndX + 100) {
+        scanX += 4;
+
+        const grad = ctx.createLinearGradient(scanX - 150, 0, scanX, 0);
+        grad.addColorStop(0, 'rgba(0, 255, 136, 0)');
+        grad.addColorStop(1, 'rgba(0, 255, 136, 0.15)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(scanX - 150, 0, 150, height);
+
+        ctx.strokeStyle = ALC_COLORS.SCAN;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(scanX, 0);
+        ctx.lineTo(scanX, height);
+        ctx.stroke();
+      } else {
+        if (!isWaiting) {
+          isWaiting = true;
+          setTimeout(createNewBuilding, 4000);
         }
+      }
 
-        if (closestBuilding) {
-            if (closestBuilding.x > ship.x) {
-                ship.targetX = closestBuilding.x - (closestBuilding.w/2) - 300;
-            } 
-            else {
-                ship.targetX = closestBuilding.x + (closestBuilding.w/2) + 300;
-            }
-        } else {
-            ship.targetX = ship.targetX * 0.99;
-        }
-
-        ship.x += (ship.targetX - ship.x) * 0.05;
-
-        if (buildings[buildings.length-1].z < CONFIG.viewDistance) {
-            buildings.push(new Building(buildings[buildings.length-1].z + 300));
-        }
-
-        for (let i = buildings.length - 1; i >= 0; i--) {
-            let b = buildings[i];
-            b.z -= CONFIG.speed;
-            if (b.z < -200) {
-                buildings.splice(i, 1);
-            }
-        }
-
-        buildings.sort((a, b) => b.z - a.z);
-
-        buildings.forEach(b => {
-            if (b.z < 10) return;
-
-            let alpha = 1.0;
-            
-            if (b.z < 400) {
-                alpha = (b.z) / 400; 
-            }
-            
-            if (b.z > 2000) {
-                alpha = Math.min(alpha, 1 - (b.z - 2000) / 1000);
-            }
-
-            if (alpha <= 0.01) return;
-
-            ctx.globalAlpha = alpha;
-
-            const scale = CONFIG.fov / b.z;
-            const x = cx + ((b.x - ship.x) * scale);
-            const y = cy + (CONFIG.camHeight * scale);
-            const w = b.w * scale;
-            const h = b.h * scale;
-
-            ctx.fillStyle = b.sideColor;
-            const sideSize = w * 0.6;
-            if (x > cx) {
-                ctx.fillRect(x - w/2 - sideSize, y - h, sideSize, h);
-            } else {
-                ctx.fillRect(x + w/2, y - h, sideSize, h);
-            }
-
-            ctx.fillStyle = b.color;
-            ctx.fillRect(x - w/2, y - h, w, h);
-            
-            ctx.globalAlpha = 1.0;
-        });
-
-        animationFrameId = requestAnimationFrame(loop);
+      animationFrameId = requestAnimationFrame(draw);
     }
 
-    init();
+    window.addEventListener('resize', resize);
+    resize();
+    draw();
 
     return () => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
-    }
+    };
   }, []);
 
   return (
     <section className="tech-hero">
-      <canvas ref={canvasRef} id="game-canvas"></canvas>
+      <canvas ref={canvasRef} id="thermalCanvas"></canvas>
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
-            Put Your Building in Cruise Control.
+          Put Your Building in Cruise Control.
         </h1>
         <p className="mt-6 text-lg md:text-xl text-white/80 max-w-xl">
-            Our mission is to create optimal and efficient building environments that enable people and businesses to achieve their highest potential.
+          Our mission is to create optimal and efficient building environments
+          that enable people and businesses to achieve their highest potential.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-start justify-start gap-4">
-            <Button asChild size="lg" variant="secondary">
-              <Link href="#methodology">Our Methodology</Link>
-            </Button>
-            <Button asChild size="lg" variant="accent">
-              <Link href="#services">Our Services</Link>
-            </Button>
+          <Button asChild size="lg" variant="secondary">
+            <Link href="#methodology">Our Methodology</Link>
+          </Button>
+          <Button asChild size="lg" variant="accent">
+            <Link href="#services">Our Services</Link>
+          </Button>
         </div>
         <div className="mt-12">
-            <Image
-              src="/images/AutomatedLogic_logo_AD_wr_300.png"
-              alt="Automated Logic Authorized Dealer"
-              width={300}
-              height={85}
-              priority
-            />
+          <Image
+            src="/images/AutomatedLogic_logo_AD_wr_300.png"
+            alt="Automated Logic Authorized Dealer"
+            width={300}
+            height={85}
+            priority
+          />
         </div>
       </div>
     </section>
