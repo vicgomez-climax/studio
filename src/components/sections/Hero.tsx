@@ -96,7 +96,7 @@ export function Hero() {
             if(b.z < CONFIG.nearPlane) return;
 
             const scale = CONFIG.fov / b.z;
-            const x = cx + (b.x * scale);
+            const x = cx + ((b.x - ship.x) * scale);
             const y = cy + (150 * scale);
             const w = b.w * scale;
             const h = b.h * scale;
