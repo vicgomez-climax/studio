@@ -11,194 +11,140 @@ export function Hero() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
+    
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
     // --- CONFIGURATION ---
     const CONFIG = {
-        buildingColor: '#0a0a12',
-        windowColorOn: '#4db8ff',  // Cyan tech lights
-        windowColorOff: '#141420',
-        fogColor: '#020205',       // Must match CSS background
-        speed: 2,                  // Drone flight speed
-        density: 300,              // Number of buildings
-        fov: 600                   // Field of view
+        fov: 800,
+        cameraHeight: 200,
+        speed: 40,
+        buildingColor: '#ffffff',
+        buildingSideColor: '#e0e0e0',
+        fogColor: '#87CEEB',
+        viewDistance: 4000
     };
 
     let width: number, height: number;
     let buildings: Building[] = [];
-    let camZ = 0;
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetMouseX = 0;
-    let targetMouseY = 0;
     let animationFrameId: number;
 
-    // --- BUILDING CLASS ---
+    const ship = {
+        x: 0,
+        y: 0,
+    };
+
     class Building {
-        x: number;
-        y: number;
-        z: number;
         w: number;
         h: number;
         d: number;
-        windows: { r: number, c: number }[];
+        x: number;
+        z: number;
 
-        constructor(x: number, z: number, w: number, h: number, d: number) {
-            this.x = x;          // X position (left/right)
-            this.y = 200;        // Y position (floor level, below camera)
-            this.z = z;          // Z depth
-            this.w = w;          // Width
-            this.h = h;          // Height (grows upwards)
-            this.d = d;          // Depth (thickness)
-            this.windows = [];   // Pre-calculate window lights
-            
-            // Generate random windows
-            const rows = Math.floor(this.h / 15);
-            const cols = Math.floor(this.w / 10);
-            for(let r=0; r<rows; r++) {
-                for(let c=0; c<cols; c++) {
-                    if(Math.random() > 0.7) { // 30% chance of light
-                        this.windows.push({r, c});
-                    }
-                }
-            }
+        constructor(z: number) {
+            this.w = 100 + Math.random() * 150;
+            this.h = 400 + Math.random() * 800;
+            this.d = 100 + Math.random() * 100;
+            this.x = (Math.random() * 4000) - 2000;
+            this.z = z;
         }
-
-        project(cx: number, cy: number, fov: number, viewZ: number) {
-            // Relative Z from camera
-            const relZ = this.z - viewZ;
+        
+        project(cx: number, cy: number, fov: number) {
+            const scaleF = fov / Math.max(1, this.z);
+            const scaleB = fov / Math.max(1, this.z + this.d);
+            const xF = cx + (this.x * scaleF);
+            const wF = this.w * scaleF;
+            const hF = this.h * scaleF;
+            const yF = cy + (CONFIG.cameraHeight * scaleF);
+            const xB = cx + (this.x * scaleB);
+            const wB = this.w * scaleB;
             
-            // If behind camera or too far, don't draw
-            if (relZ <= 0 || relZ > 4000) return null;
-
-            const scale = fov / relZ;
-            const screenX = cx + (this.x * scale);
-            const screenY = cy + (this.y * scale); // Floor Y on screen
-            
-            const projW = this.w * scale;
-            const projH = this.h * scale; // Height grows UP from floor
-            
-            return { x: screenX, y: screenY, w: projW, h: projH, scale: scale, relZ: relZ };
+            return { xF, yF, wF, hF, xB, wB, scaleF, scaleB };
         }
     }
 
-    // --- INITIALIZATION ---
     function init() {
         resize();
-        createCity();
         window.addEventListener('resize', resize);
-        document.addEventListener('mousemove', handleMouseMove);
         
-        requestAnimationFrame(() => {
-          if(canvas) canvas.style.opacity = '1'
+        document.addEventListener('mousemove', (e) => {
+            const ratio = (e.clientX / width) * 2 - 1;
+            ship.x = ratio * 1500;
         });
-        loop();
-    }
-    
-    function handleMouseMove(e: MouseEvent) {
-      // Normalize mouse from -1 to 1
-      targetMouseX = (e.clientX / width) * 2 - 1;
-      targetMouseY = (e.clientY / height) * 2 - 1;
-    }
 
-    function createCity() {
-        buildings = [];
-        const spacing = 150;
-        
-        for(let z = 0; z < 5000; z += spacing) {
-            for(let x = -2000; x < 2000; x += spacing) {
-                if(Math.random() > 0.8) continue;
-                
-                const w = 40 + Math.random() * 60;
-                const h = 100 + Math.random() * 600;
-                const d = 40 + Math.random() * 60;
-                
-                const jx = x + (Math.random() * 50 - 25);
-                const jz = z + (Math.random() * 50 - 25);
-                
-                buildings.push(new Building(jx, jz, w, h, d));
-            }
+        for (let z = 500; z < CONFIG.viewDistance; z += 400) {
+            buildings.push(new Building(z));
         }
+
+        loop();
     }
 
     function resize() {
-      if (canvas) {
+        if (!canvas) return;
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
-      }
     }
 
-    // --- RENDER LOOP ---
     function loop() {
-        mouseX += (targetMouseX - mouseX) * 0.05;
-        mouseY += (targetMouseY - mouseY) * 0.05;
-
-        camZ += CONFIG.speed;
-        
-        buildings.forEach(b => {
-            if (b.z - camZ < -200) {
-                b.z += 5000;
-            }
-        });
-
         if (!ctx) return;
         ctx.fillStyle = CONFIG.fogColor;
         ctx.fillRect(0, 0, width, height);
 
-        const cx = width / 2 - (mouseX * 200);
-        const cy = height / 2 + (mouseY * 100);
+        const cy = height / 2;
+        const cx = width / 2;
 
-        const renderList: {b: Building, proj: any}[] = [];
-        for(let b of buildings) {
-            const proj = b.project(cx, cy, CONFIG.fov, camZ);
-            if(proj) renderList.push({ b, proj });
+        const lastB = buildings[buildings.length - 1];
+        if (lastB.z < CONFIG.viewDistance) {
+            buildings.push(new Building(lastB.z + 400));
         }
-        renderList.sort((a, b) => b.proj.relZ - a.proj.relZ);
 
-        renderList.forEach(item => {
-            const { b, proj } = item;
-            const { x, y, w, h, scale, relZ } = proj;
-
-            const fogDensity = Math.min(1, Math.pow(relZ / 3500, 2));
-            
-            const roofY = y - h;
-            
-            ctx.fillStyle = CONFIG.buildingColor;
-            ctx.fillRect(x - w/2, roofY, w, h);
-            
-            ctx.fillStyle = CONFIG.windowColorOn;
-            const winW = w * 0.1;
-            
-            if(scale > 0.2) {
-                ctx.globalAlpha = (1 - fogDensity) * 0.8;
-                for(let win of b.windows) {
-                    const winX = (x - w/2) + (win.c * (w/10)) + 2;
-                    const winY = roofY + (win.r * 15 * scale) + 5;
-                    
-                    if (winY < y) {
-                        ctx.fillRect(winX, winY, winW, 3 * scale);
-                    }
-                }
-                ctx.globalAlpha = 1.0;
+        for (let i = buildings.length - 1; i >= 0; i--) {
+            buildings[i].z -= CONFIG.speed;
+            if (buildings[i].z < -500) {
+                buildings.splice(i, 1);
             }
+        }
+        
+        const cameraOffsetX = -ship.x;
+        
+        buildings.sort((a, b) => b.z - a.z);
 
-            const roofDepth = b.d * scale;
+        buildings.forEach(b => {
+            const proj = b.project(cx + (cameraOffsetX * CONFIG.fov / Math.max(1, b.z)), cy, CONFIG.fov);
+            const { xF, yF, wF, hF, xB, wB, scaleF, scaleB } = proj;
+
+            const alpha = Math.max(0, 1 - (b.z / CONFIG.viewDistance));
             
-            ctx.beginPath();
-            ctx.moveTo(x - w/2, roofY);
-            ctx.lineTo(x + w/2, roofY);
-            ctx.lineTo(x + w/2 + (mouseX * 50 * scale), roofY - roofDepth);
-            ctx.lineTo(x - w/2 + (mouseX * 50 * scale), roofY - roofDepth);
-            ctx.closePath();
-            ctx.fillStyle = '#0f0f18';
-            ctx.fill();
+            if (alpha > 0) {
+                ctx.globalAlpha = alpha;
 
-            if(fogDensity > 0.01) {
-                ctx.fillStyle = CONFIG.fogColor;
-                ctx.globalAlpha = fogDensity;
-                ctx.fillRect(x - w/2 - 10, roofY - roofDepth -10, w + 40, h + roofDepth + 20);
+                const finalXF = xF - wF/2;
+                const finalXB = xB - wB/2;
+                
+                // Draw Side Face
+                ctx.fillStyle = CONFIG.buildingSideColor;
+                ctx.beginPath();
+                 if (finalXB > finalXF) { // Left side visible
+                    ctx.moveTo(finalXF, yF);
+                    ctx.lineTo(finalXF, yF - hF);
+                    ctx.lineTo(finalXB, yF - hF * (scaleB / scaleF));
+                    ctx.lineTo(finalXB, yF);
+                } else { // Right side visible
+                    const rightXF = xF + wF/2;
+                    const rightXB = xB + wB/2;
+                    ctx.moveTo(rightXF, yF);
+                    ctx.lineTo(rightXF, yF - hF);
+                    ctx.lineTo(rightXB, yF - hF * (scaleB / scaleF));
+                    ctx.lineTo(rightXB, yF);
+                }
+                ctx.closePath();
+                ctx.fill();
+
+                // Draw Front Face
+                ctx.fillStyle = CONFIG.buildingColor;
+                ctx.fillRect(finalXF, yF - hF, wF, hF);
+                
                 ctx.globalAlpha = 1.0;
             }
         });
@@ -207,23 +153,22 @@ export function Hero() {
     }
 
     init();
-
+    
     return () => {
-      window.removeEventListener('resize', resize);
-      document.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
+        window.removeEventListener('resize', resize);
+        cancelAnimationFrame(animationFrameId);
     }
   }, []);
 
   return (
     <section className="tech-hero">
-      <canvas ref={canvasRef} id="city-canvas"></canvas>
+      <canvas ref={canvasRef} id="game-canvas"></canvas>
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
             Put Your Building in Cruise Control.
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-white/80">
+        <p className="mt-6 text-lg md:text-xl text-white/80 max-w-xl">
             Our mission is to create optimal and efficient building environments that enable people and businesses to achieve their highest potential.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-start justify-start gap-4">
