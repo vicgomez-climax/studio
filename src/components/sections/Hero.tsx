@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const completeMsgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,6 +15,8 @@ export function Hero() {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    
+    const completeMsg = completeMsgRef.current;
 
     const ALC_COLORS = {
       RED: '#cc2936',
@@ -23,6 +26,7 @@ export function Hero() {
       BG: '#060a14',
       WALL: 'rgba(255, 255, 255, 0.1)',
       SCAN: '#00ff88',
+      GRID: 'rgba(59, 130, 246, 0.1)',
     };
 
     let zones: Zone[] = [];
@@ -75,18 +79,15 @@ export function Hero() {
         ctx.strokeStyle = ALC_COLORS.WALL;
         ctx.lineWidth = 1;
         ctx.strokeRect(this.x, this.y, this.w, this.h);
+        
+        ctx.fillStyle = 'rgba(255,255,255,0.7)';
+        ctx.font = '12px "Roboto Mono", monospace';
+        ctx.fillText(this.name, this.x + 8, this.y + 18);
 
-        // Draw text only if the zone is large enough
-        if(this.w > 60 && this.h > 40) {
-            ctx.fillStyle = 'rgba(255,255,255,0.7)';
-            ctx.font = '12px "Roboto Mono", monospace';
-            ctx.fillText(this.name, this.x + 8, this.y + 18);
-
-            const temp = this.isOptimized ? "72.0°" : this.badTemp;
-            ctx.font = `bold 14px "Roboto Mono", monospace`;
-            ctx.fillStyle = this.isOptimized ? "#fff" : "rgba(255,255,255,0.5)";
-            ctx.fillText(temp, this.x + 8, this.y + 36);
-        }
+        const temp = this.isOptimized ? "72.0°" : this.badTemp;
+        ctx.font = `bold 14px "Roboto Mono", monospace`;
+        ctx.fillStyle = this.isOptimized ? "#fff" : "rgba(255,255,255,0.5)";
+        ctx.fillText(temp, this.x + 8, this.y + 36);
       }
 
       update(currentScanX: number) {
@@ -98,9 +99,11 @@ export function Hero() {
     }
 
     function generateFloorPlan(x: number, y: number, w: number, h: number, depth: number) {
-      const minSize = 60; // Increased min size to ensure text fits
+      const minSize = 80; 
       if (depth <= 0 || (w < minSize * 2 && h < minSize * 2)) {
-        zones.push(new Zone(x, y, w, h));
+        if(w >= minSize && h >= minSize) {
+          zones.push(new Zone(x, y, w, h));
+        }
         return;
       }
 
@@ -115,7 +118,9 @@ export function Hero() {
         generateFloorPlan(x, y, splitW, h, depth - 1);
         generateFloorPlan(x + splitW, y, w - splitW, h, depth - 1);
       } else {
-        zones.push(new Zone(x, y, w, h));
+         if(w >= minSize && h >= minSize) {
+            zones.push(new Zone(x, y, w, h));
+         }
       }
     }
 
@@ -131,6 +136,7 @@ export function Hero() {
       scanX = bX - 100;
       isWaiting = false;
       optimizationTextAlpha = 0;
+      if (completeMsg) completeMsg.style.opacity = '0';
     }
 
     function resize() {
@@ -146,7 +152,7 @@ export function Hero() {
       ctx.fillStyle = ALC_COLORS.BG;
       ctx.fillRect(0, 0, width, height);
 
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.strokeStyle = ALC_COLORS.GRID;
       ctx.lineWidth = 1;
       for (let i = 0; i < width; i += 60) {
         ctx.beginPath();
@@ -186,6 +192,7 @@ export function Hero() {
       } else {
         if (!isWaiting) {
           isWaiting = true;
+          if (completeMsg) completeMsg.style.opacity = '1';
           setTimeout(() => {
              zones.forEach(z => {
                 z.isOptimized = false;
@@ -193,32 +200,6 @@ export function Hero() {
             });
             createNewBuilding();
           }, 4000);
-        }
-        
-        if (optimizationTextAlpha < 1) {
-            optimizationTextAlpha += 0.02;
-        }
-        
-        if (zones.length > 0) {
-            const minX = zones.reduce((min, z) => Math.min(min, z.x), Infinity);
-            const maxX = zones.reduce((max, z) => Math.max(max, z.x + z.w), -Infinity);
-            const minY = zones.reduce((min, z) => Math.min(min, z.y), Infinity);
-            const maxY = zones.reduce((max, z) => Math.max(max, z.y + z.h), -Infinity);
-
-            const gridWidth = maxX - minX;
-            const centerX = minX + gridWidth / 2;
-            const centerY = minY + (maxY - minY) / 2;
-
-            const fontSize = gridWidth / 10;
-
-            ctx.globalAlpha = Math.min(1, optimizationTextAlpha);
-            ctx.fillStyle = 'white';
-            ctx.font = `bold ${fontSize}px "Inter", sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('Optimization', centerX, centerY - fontSize / 2);
-            ctx.fillText('Complete', centerX, centerY + fontSize / 2);
-            ctx.globalAlpha = 1;
         }
       }
     }
@@ -241,6 +222,15 @@ export function Hero() {
       <canvas ref={canvasRef} id="thermalCanvas"></canvas>
       <div className="hero-overlay"></div>
       <div className="hero-content">
+        <div className="mb-12">
+            <Image
+                src="/images/AutomatedLogic_logo_AD_wr_300.png"
+                alt="Automated Logic Authorized Dealer"
+                width={300}
+                height={85}
+                priority
+            />
+        </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
           Put Your Building in Cruise Control.
         </h1>
@@ -256,15 +246,7 @@ export function Hero() {
             <Link href="#services">Our Services</Link>
           </Button>
         </div>
-        <div className="mt-12">
-          <Image
-            src="/images/AutomatedLogic_logo_AD_wr_300.png"
-            alt="Automated Logic Authorized Dealer"
-            width={300}
-            height={85}
-            priority
-          />
-        </div>
+        <div ref={completeMsgRef} id="complete-msg">AUTOPILOT COMPLETE</div>
       </div>
     </section>
   );
