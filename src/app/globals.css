@@ -95,188 +95,70 @@
 }
 
 @layer components {
-  /* Cinematic City Hero Section */
-  .hero-city-section {
-    position: relative;
-    height: 700px;
-    min-height: 90vh;
-    width: 100%;
-    background: linear-gradient(160deg, #0a0a1a 0%, #1a1a2e 100%);
-    overflow: hidden;
-    perspective: 1000px;
-    --x: 0;
-    --y: 0;
-  }
-
-  .city-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transform: rotateX(calc(55deg + var(--y) * -5deg)) rotateZ(calc(-20deg + var(--x) * 5deg));
-    will-change: transform;
-    transition: transform 0.2s ease-out;
-  }
-
-  .skyscraper-group {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    animation: city-flyover 120s linear infinite;
-  }
-
-  .skyscraper-group:nth-child(2) {
-    animation-delay: -60s;
-  }
-
-  [class^="skyscraper-"] {
-    position: absolute;
-    bottom: 0;
-    width: 5vw;
-    min-width: 40px;
-    max-width: 70px;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    transform-style: preserve-3d;
-  }
-
-  [class^="skyscraper-"]::before, [class^="skyscraper-"]::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-      linear-gradient(rgba(20, 83, 113, 0.6) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(20, 83, 113, 0.6) 1px, transparent 1px);
-    background-size: 15px 30px;
-    animation: window-lights 15s linear infinite;
-    backface-visibility: hidden;
-  }
-
-  [class^="skyscraper-"]::after {
-    animation-delay: -7.5s;
-    opacity: 0;
-  }
-
-  .skyscraper-bg { opacity: 0.6; }
-
-  /* Building placements and heights */
-  .part-0 { left: 5%; height: 40%; width: 4vw; }
-  .part-1 { left: 10%; height: 60%; }
-  .part-2 { left: 20%; height: 50%; width: 6vw; }
-  .part-3 { left: 28%; height: 70%; }
-  .part-4 { left: 35%; height: 45%; }
-  .part-5 { left: 45%; height: 80%; width: 5vw; }
-  .part-6 { left: 55%; height: 65%; }
-  .part-7 { left: 65%; height: 55%; width: 4.5vw; }
-  .part-8 { left: 75%; height: 75%; }
-  .part-9 { left: 85%; height: 50%; }
-  .part-10 { left: 95%; height: 60%; width: 5.5vw; }
-  .part-11 { left: 15%; height: 35%; }
-  .part-12 { left: 40%; height: 60%; }
-  .part-13 { left: 70%; height: 85%; }
-  .part-14 { left: 90%; height: 30%; }
-
-  .skyscraper-bg.part-0 { left: 2%; height: 35%; }
-  .skyscraper-bg.part-1 { left: 12%; height: 55%; }
-  .skyscraper-bg.part-2 { left: 23%; height: 45%; }
-  .skyscraper-bg.part-3 { left: 33%; height: 65%; }
-  .skyscraper-bg.part-4 { left: 48%; height: 40%; }
-  .skyscraper-bg.part-5 { left: 60%; height: 75%; }
-  .skyscraper-bg.part-6 { left: 72%; height: 60%; }
-  .skyscraper-bg.part-7 { left: 82%; height: 50%; }
-  .skyscraper-bg.part-8 { left: 92%; height: 70%; }
-
-  @keyframes city-flyover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-200vh); }
-  }
-
-  @keyframes window-lights {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
-  }
-
-  @keyframes fade-in-down {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
+    .tech-hero {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        min-height: 700px;
+        background-color: #020205; /* Fallback color */
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  @keyframes fade-in-up-slow {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+    #city-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0; /* Fades in on load */
+        transition: opacity 1.5s ease;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  @keyframes fade-in-up-slower {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.0) 80%),
+                    linear-gradient(to top, rgba(2,2,5,1) 0%, transparent 20%);
+        pointer-events: none;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  .animate-fade-in-down {
-    animation: fade-in-down 1s ease-out forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
-  }
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        color: #ffffff;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: heroFadeIn 1s ease forwards 0.5s;
+        @apply container mx-auto px-4;
+    }
 
-  .animate-fade-in-up-slow {
-    animation: fade-in-up-slow 1s ease-out forwards;
-    animation-delay: 0.4s;
-    opacity: 0;
-  }
+    @keyframes heroFadeIn {
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-  .animate-fade-in-up-slower {
-    animation: fade-in-up-slower 1s ease-out forwards;
-    animation-delay: 0.6s;
-    opacity: 0;
-  }
-
-  /* Responsive adjustments for the hero section */
-  @media (max-width: 768px) {
-    .hero-city-section {
-      height: auto;
-      min-height: 80vh;
-      padding: 8rem 0 4rem;
+     @media (max-width: 768px) {
+      .tech-hero {
+        min-height: 80vh;
+        padding: 8rem 0 4rem;
+        text-align: center;
+      }
+      .hero-content .flex-row {
+        flex-direction: column;
+        align-items: center;
+      }
+       .hero-content .items-start {
+        align-items: center;
+       }
+       .hero-content .justify-start {
+        justify-content: center;
+       }
     }
-    .hero-city-section .container {
-      text-align: center;
-    }
-     .hero-city-section .max-w-xl {
-      margin-left: auto;
-      margin-right: auto;
-    }
-     .hero-city-section .items-start {
-       align-items: center;
-     }
-    .hero-city-section .justify-start {
-      justify-content: center;
-    }
-    .city-bg {
-      transform: rotateX(65deg) rotateZ(-10deg);
-      opacity: 0.3;
-    }
-  }
 }
