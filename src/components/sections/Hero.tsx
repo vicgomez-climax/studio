@@ -29,7 +29,7 @@ export function Hero() {
     let scanX = 0;
     let width: number, height: number;
     let isWaiting = false;
-    let animationFrameId: number;
+    let optimizationTextAlpha = 0;
 
     class Zone {
       x: number;
@@ -101,6 +101,7 @@ export function Hero() {
       generateFloorPlan(bX, bY, bW, bH, 4);
       scanX = bX - 100;
       isWaiting = false;
+      optimizationTextAlpha = 0;
     }
 
     function resize() {
@@ -111,6 +112,8 @@ export function Hero() {
 
     function draw() {
       if (!ctx) return;
+      animationFrameId = requestAnimationFrame(draw);
+      
       ctx.fillStyle = ALC_COLORS.BG;
       ctx.fillRect(0, 0, width, height);
 
@@ -156,11 +159,33 @@ export function Hero() {
           isWaiting = true;
           setTimeout(createNewBuilding, 4000);
         }
+        
+        // Fade in the "Optimization Complete" text
+        if (optimizationTextAlpha < 1) {
+            optimizationTextAlpha += 0.02;
+        }
+        
+        if (zones.length > 0) {
+            const minX = zones.reduce((min, z) => Math.min(min, z.x), Infinity);
+            const maxX = zones.reduce((max, z) => Math.max(max, z.x + z.w), -Infinity);
+            const minY = zones.reduce((min, z) => Math.min(min, z.y), Infinity);
+            const maxY = zones.reduce((max, z) => Math.max(max, z.y + z.h), -Infinity);
+
+            const centerX = minX + (maxX - minX) / 2;
+            const centerY = minY + (maxY - minY) / 2;
+
+            ctx.globalAlpha = Math.min(1, optimizationTextAlpha);
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 16px "Inter", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Optimization Complete', centerX, centerY);
+            ctx.globalAlpha = 1;
+        }
       }
-
-      animationFrameId = requestAnimationFrame(draw);
     }
-
+    
+    let animationFrameId: number;
     window.addEventListener('resize', resize);
     resize();
     draw();
