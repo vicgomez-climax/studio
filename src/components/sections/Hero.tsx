@@ -31,6 +31,12 @@ export function Hero() {
     let isWaiting = false;
     let optimizationTextAlpha = 0;
 
+    const ROOM_NAMES = [
+      'Lobby', 'Office 101', 'Conf. Room', 'IT Closet', 'Breakroom', 'Office 102',
+      'Huddle Space', 'Reception', 'Workspace A', 'Server Room', 'Office 103'
+    ];
+    let roomNameIndex = 0;
+
     class Zone {
       x: number;
       y: number;
@@ -39,16 +45,26 @@ export function Hero() {
       startColor: string;
       currentColor: string;
       isOptimized: boolean;
+      name: string;
+      badTemp: string;
 
       constructor(x: number, y: number, w: number, h: number) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
+        
         const palette = [ALC_COLORS.RED, ALC_COLORS.YELLOW, ALC_COLORS.BLUE];
         this.startColor = palette[Math.floor(Math.random() * palette.length)];
         this.currentColor = this.startColor;
         this.isOptimized = false;
+        
+        this.name = ROOM_NAMES[roomNameIndex % ROOM_NAMES.length];
+        roomNameIndex++;
+
+        if (this.startColor === ALC_COLORS.RED) this.badTemp = '81.4°';
+        else if (this.startColor === ALC_COLORS.YELLOW) this.badTemp = '78.2°';
+        else this.badTemp = '64.2°';
       }
 
       draw() {
@@ -59,6 +75,18 @@ export function Hero() {
         ctx.strokeStyle = ALC_COLORS.WALL;
         ctx.lineWidth = 1;
         ctx.strokeRect(this.x, this.y, this.w, this.h);
+
+        // Draw text only if the zone is large enough
+        if(this.w > 60 && this.h > 40) {
+            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+            ctx.font = '12px "Roboto Mono", monospace';
+            ctx.fillText(this.name, this.x + 8, this.y + 18);
+
+            const temp = this.isOptimized ? "72.0°" : this.badTemp;
+            ctx.font = `bold 14px "Roboto Mono", monospace`;
+            ctx.fillStyle = this.isOptimized ? "#fff" : "rgba(255,255,255,0.5)";
+            ctx.fillText(temp, this.x + 8, this.y + 36);
+        }
       }
 
       update(currentScanX: number) {
@@ -70,7 +98,7 @@ export function Hero() {
     }
 
     function generateFloorPlan(x: number, y: number, w: number, h: number, depth: number) {
-      const minSize = 50;
+      const minSize = 60; // Increased min size to ensure text fits
       if (depth <= 0 || (w < minSize * 2 && h < minSize * 2)) {
         zones.push(new Zone(x, y, w, h));
         return;
@@ -93,9 +121,10 @@ export function Hero() {
 
     function createNewBuilding() {
       zones = [];
+      roomNameIndex = 0;
       const bW = width * (0.4 + Math.random() * 0.15);
       const bH = height * (0.5 + Math.random() * 0.2);
-      const bX = width * 0.9 - bW;
+      const bX = width * 0.95 - bW;
       const bY = (height - bH) / 2;
 
       generateFloorPlan(bX, bY, bW, bH, 4);
@@ -112,7 +141,7 @@ export function Hero() {
 
     function draw() {
       if (!ctx) return;
-      animationFrameId = requestAnimationFrame(draw);
+      let animationFrameId = requestAnimationFrame(draw);
       
       ctx.fillStyle = ALC_COLORS.BG;
       ctx.fillRect(0, 0, width, height);
@@ -157,7 +186,13 @@ export function Hero() {
       } else {
         if (!isWaiting) {
           isWaiting = true;
-          setTimeout(createNewBuilding, 4000);
+          setTimeout(() => {
+             zones.forEach(z => {
+                z.isOptimized = false;
+                z.currentColor = z.startColor;
+            });
+            createNewBuilding();
+          }, 4000);
         }
         
         if (optimizationTextAlpha < 1) {
@@ -195,7 +230,9 @@ export function Hero() {
 
     return () => {
       window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
+      if(animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
 
