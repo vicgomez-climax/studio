@@ -11,69 +11,52 @@ export function Hero() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // --- CONFIGURATION ---
-    const CONFIG = {
-        fov: 800,
-        cameraHeight: 200,
-        speed: 40,
-        buildingColor: '#ffffff',
-        buildingSideColor: '#e0e0e0',
-        fogColor: '#87CEEB',
-        viewDistance: 4000
-    };
-
     let width: number, height: number;
     let buildings: Building[] = [];
-    let animationFrameId: number;
-
-    const ship = {
-        x: 0,
-        y: 0,
+    
+    const CONFIG = {
+        speed: 25,
+        fov: 600,
+        viewDist: 3000,
+        nearPlane: 100
     };
+
+    const ship = { x: 0, width: 60 };
 
     class Building {
         w: number;
         h: number;
-        d: number;
         x: number;
         z: number;
+        color: string;
+        sideColor: string;
 
-        constructor(z: number) {
-            this.w = 100 + Math.random() * 150;
-            this.h = 400 + Math.random() * 800;
-            this.d = 100 + Math.random() * 100;
-            this.x = (Math.random() * 4000) - 2000;
-            this.z = z;
-        }
-        
-        project(cx: number, cy: number, fov: number) {
-            const scaleF = fov / Math.max(1, this.z);
-            const scaleB = fov / Math.max(1, this.z + this.d);
-            const xF = cx + (this.x * scaleF);
-            const wF = this.w * scaleF;
-            const hF = this.h * scaleF;
-            const yF = cy + (CONFIG.cameraHeight * scaleF);
-            const xB = cx + (this.x * scaleB);
-            const wB = this.w * scaleB;
-            
-            return { xF, yF, wF, hF, xB, wB, scaleF, scaleB };
+        constructor(zStart: number) {
+            this.w = 150 + Math.random() * 200; 
+            this.h = 400 + Math.random() * 600; 
+            this.x = (Math.random() * 6000) - 3000;
+            this.z = zStart;
+            this.color = '#ffffff'; 
+            this.sideColor = '#cccccc';
         }
     }
+
+    let animationFrameId: number;
 
     function init() {
         resize();
         window.addEventListener('resize', resize);
         
-        document.addEventListener('mousemove', (e) => {
+        window.addEventListener('mousemove', e => {
             const ratio = (e.clientX / width) * 2 - 1;
-            ship.x = ratio * 1500;
+            ship.x = ratio * 2000;
         });
 
-        for (let z = 500; z < CONFIG.viewDistance; z += 400) {
+        for(let z=500; z<CONFIG.viewDist; z+=300) {
             buildings.push(new Building(z));
         }
 
@@ -81,82 +64,63 @@ export function Hero() {
     }
 
     function resize() {
-        if (!canvas) return;
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     }
 
     function loop() {
         if (!ctx) return;
-        ctx.fillStyle = CONFIG.fogColor;
+
+        ctx.fillStyle = "#87CEEB"; 
         ctx.fillRect(0, 0, width, height);
-
-        const cy = height / 2;
+        
         const cx = width / 2;
+        const cy = height / 2;
 
-        const lastB = buildings[buildings.length - 1];
-        if (lastB.z < CONFIG.viewDistance) {
-            buildings.push(new Building(lastB.z + 400));
+        if(buildings.length > 0 && buildings[buildings.length-1].z < CONFIG.viewDist) {
+            buildings.push(new Building(buildings[buildings.length-1].z + 300));
         }
 
-        for (let i = buildings.length - 1; i >= 0; i--) {
-            buildings[i].z -= CONFIG.speed;
-            if (buildings[i].z < -500) {
+        for(let i = buildings.length - 1; i >= 0; i--) {
+            let b = buildings[i];
+            b.z -= CONFIG.speed;
+
+            if(b.z < -200) {
                 buildings.splice(i, 1);
             }
         }
-        
-        const cameraOffsetX = -ship.x;
-        
+
         buildings.sort((a, b) => b.z - a.z);
 
         buildings.forEach(b => {
-            const proj = b.project(cx + (cameraOffsetX * CONFIG.fov / Math.max(1, b.z)), cy, CONFIG.fov);
-            const { xF, yF, wF, hF, xB, wB, scaleF, scaleB } = proj;
+            if(b.z < CONFIG.nearPlane) return;
 
-            const alpha = Math.max(0, 1 - (b.z / CONFIG.viewDistance));
-            
-            if (alpha > 0) {
-                ctx.globalAlpha = alpha;
+            const scale = CONFIG.fov / b.z;
+            const x = cx + (b.x * scale);
+            const y = cy + (150 * scale);
+            const w = b.w * scale;
+            const h = b.h * scale;
 
-                const finalXF = xF - wF/2;
-                const finalXB = xB - wB/2;
-                
-                // Draw Side Face
-                ctx.fillStyle = CONFIG.buildingSideColor;
-                ctx.beginPath();
-                 if (finalXB > finalXF) { // Left side visible
-                    ctx.moveTo(finalXF, yF);
-                    ctx.lineTo(finalXF, yF - hF);
-                    ctx.lineTo(finalXB, yF - hF * (scaleB / scaleF));
-                    ctx.lineTo(finalXB, yF);
-                } else { // Right side visible
-                    const rightXF = xF + wF/2;
-                    const rightXB = xB + wB/2;
-                    ctx.moveTo(rightXF, yF);
-                    ctx.lineTo(rightXF, yF - hF);
-                    ctx.lineTo(rightXB, yF - hF * (scaleB / scaleF));
-                    ctx.lineTo(rightXB, yF);
-                }
-                ctx.closePath();
-                ctx.fill();
-
-                // Draw Front Face
-                ctx.fillStyle = CONFIG.buildingColor;
-                ctx.fillRect(finalXF, yF - hF, wF, hF);
-                
-                ctx.globalAlpha = 1.0;
+            ctx.fillStyle = b.sideColor;
+            const sideSize = w * 0.4; 
+            if (x > cx) {
+                ctx.fillRect(x - w/2 - sideSize, y - h, sideSize, h);
+            } else {
+                ctx.fillRect(x + w/2, y - h, sideSize, h);
             }
-        });
 
+            ctx.fillStyle = b.color;
+            ctx.fillRect(x - w/2, y - h, w, h);
+        });
+        
         animationFrameId = requestAnimationFrame(loop);
     }
 
     init();
-    
+
     return () => {
-        window.removeEventListener('resize', resize);
-        cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrameId);
     }
   }, []);
 
