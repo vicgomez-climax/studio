@@ -95,94 +95,112 @@
 }
 
 @layer components {
-  .hero-section .animated-bg {
+  /* Cinematic City Hero Section */
+  .hero-city-section {
+    position: relative;
+    height: 700px;
+    min-height: 90vh;
+    width: 100%;
+    background: linear-gradient(160deg, #0a0a1a 0%, #1a1a2e 100%);
+    overflow: hidden;
+    perspective: 1000px;
+    --x: 0;
+    --y: 0;
+  }
+
+  .city-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-  }
-
-  .hero-section .shape {
-    position: absolute;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    transform: rotateX(calc(55deg + var(--y) * -5deg)) rotateZ(calc(-20deg + var(--x) * 5deg));
     will-change: transform;
+    transition: transform 0.2s ease-out;
   }
 
-  .hero-section .shape1 {
-    width: 150px;
-    height: 150px;
-    top: 10%;
-    left: 15%;
-    animation: float 12s infinite ease-in-out, glow 12s infinite ease-in-out;
+  .skyscraper-group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: city-flyover 120s linear infinite;
   }
 
-  .hero-section .shape2 {
-    width: 200px;
-    height: 100px;
-    top: 25%;
-    left: 70%;
-    animation: float 15s infinite ease-in-out reverse, glow 15s infinite ease-in-out;
+  .skyscraper-group:nth-child(2) {
+    animation-delay: -60s;
   }
 
-  .hero-section .shape3 {
-    width: 80px;
-    height: 80px;
-    top: 70%;
-    left: 10%;
-    animation: float 10s infinite ease-in-out, glow 10s infinite ease-in-out;
-  }
-  
-  .hero-section .shape4 {
-    width: 120px;
-    height: 180px;
-    top: 60%;
-    left: 80%;
-    animation: float 18s infinite ease-in-out reverse, glow 18s infinite ease-in-out;
+  [class^="skyscraper-"] {
+    position: absolute;
+    bottom: 0;
+    width: 5vw;
+    min-width: 40px;
+    max-width: 70px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    transform-style: preserve-3d;
   }
 
-  .hero-section .shape5 {
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    left: 50%;
-    animation: float 9s infinite ease-in-out, glow 9s infinite ease-in-out;
-  }
-  
-  .hero-section .shape6 {
-    width: 250px;
-    height: 120px;
-    top: 85%;
-    left: 40%;
-    animation: float 14s infinite ease-in-out, glow 14s infinite ease-in-out;
-  }
-
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg) scale(1);
-    }
-    50% {
-      transform: translateY(-30px) rotate(15deg) scale(1.05);
-    }
+  [class^="skyscraper-"]::before, [class^="skyscraper-"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      linear-gradient(rgba(20, 83, 113, 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 83, 113, 0.6) 1px, transparent 1px);
+    background-size: 15px 30px;
+    animation: window-lights 15s linear infinite;
+    backface-visibility: hidden;
   }
 
-  @keyframes glow {
-    0%, 100% {
-      box-shadow: 0 0 10px rgba(217, 227, 255, 0.1), 0 0 20px rgba(217, 227, 255, 0.05);
-    }
-    50% {
-      box-shadow: 0 0 25px rgba(100, 149, 237, 0.4), 0 0 50px rgba(100, 149, 237, 0.2);
-    }
+  [class^="skyscraper-"]::after {
+    animation-delay: -7.5s;
+    opacity: 0;
   }
-  
-  .hero-section:hover .shape {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+
+  .skyscraper-bg { opacity: 0.6; }
+
+  /* Building placements and heights */
+  .part-0 { left: 5%; height: 40%; width: 4vw; }
+  .part-1 { left: 10%; height: 60%; }
+  .part-2 { left: 20%; height: 50%; width: 6vw; }
+  .part-3 { left: 28%; height: 70%; }
+  .part-4 { left: 35%; height: 45%; }
+  .part-5 { left: 45%; height: 80%; width: 5vw; }
+  .part-6 { left: 55%; height: 65%; }
+  .part-7 { left: 65%; height: 55%; width: 4.5vw; }
+  .part-8 { left: 75%; height: 75%; }
+  .part-9 { left: 85%; height: 50%; }
+  .part-10 { left: 95%; height: 60%; width: 5.5vw; }
+  .part-11 { left: 15%; height: 35%; }
+  .part-12 { left: 40%; height: 60%; }
+  .part-13 { left: 70%; height: 85%; }
+  .part-14 { left: 90%; height: 30%; }
+
+  .skyscraper-bg.part-0 { left: 2%; height: 35%; }
+  .skyscraper-bg.part-1 { left: 12%; height: 55%; }
+  .skyscraper-bg.part-2 { left: 23%; height: 45%; }
+  .skyscraper-bg.part-3 { left: 33%; height: 65%; }
+  .skyscraper-bg.part-4 { left: 48%; height: 40%; }
+  .skyscraper-bg.part-5 { left: 60%; height: 75%; }
+  .skyscraper-bg.part-6 { left: 72%; height: 60%; }
+  .skyscraper-bg.part-7 { left: 82%; height: 50%; }
+  .skyscraper-bg.part-8 { left: 92%; height: 70%; }
+
+  @keyframes city-flyover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-200vh); }
+  }
+
+  @keyframes window-lights {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
   }
 
   @keyframes fade-in-down {
@@ -206,8 +224,8 @@
       transform: translateY(0);
     }
   }
-  
-    @keyframes fade-in-up-slower {
+
+  @keyframes fade-in-up-slower {
     from {
       opacity: 0;
       transform: translateY(30px);
@@ -221,19 +239,44 @@
   .animate-fade-in-down {
     animation: fade-in-down 1s ease-out forwards;
     animation-delay: 0.2s;
-     opacity: 0;
+    opacity: 0;
   }
 
   .animate-fade-in-up-slow {
     animation: fade-in-up-slow 1s ease-out forwards;
     animation-delay: 0.4s;
-     opacity: 0;
+    opacity: 0;
   }
-  
+
   .animate-fade-in-up-slower {
     animation: fade-in-up-slower 1s ease-out forwards;
     animation-delay: 0.6s;
     opacity: 0;
   }
 
+  /* Responsive adjustments for the hero section */
+  @media (max-width: 768px) {
+    .hero-city-section {
+      height: auto;
+      min-height: 80vh;
+      padding: 8rem 0 4rem;
+    }
+    .hero-city-section .container {
+      text-align: center;
+    }
+     .hero-city-section .max-w-xl {
+      margin-left: auto;
+      margin-right: auto;
+    }
+     .hero-city-section .items-start {
+       align-items: center;
+     }
+    .hero-city-section .justify-start {
+      justify-content: center;
+    }
+    .city-bg {
+      transform: rotateX(65deg) rotateZ(-10deg);
+      opacity: 0.3;
+    }
+  }
 }
