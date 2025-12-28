@@ -43,7 +43,7 @@ export function Hero() {
                       alt="Automated Logic Authorized Dealer"
                       width={220}
                       height={60}
-                      className="h-16 w-auto object-contain"
+                      className="h-16 w-auto object-contain mix-blend-multiply"
                     />
                 </Link>
                 <Link href="https://www.nebb.org" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
@@ -52,7 +52,7 @@ export function Hero() {
                       alt="NEBB Certified Firm"
                       width={110}
                       height={110}
-                      className="h-20 w-auto object-contain"
+                      className="h-24 w-auto object-contain"
                     />
                 </Link>
             </div>
