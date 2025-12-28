@@ -8,7 +8,7 @@ export function Hero() {
         
         <div className="mb-4">
           <span className="text-sm font-bold tracking-widest text-primary/60 uppercase">
-            Commercial, Industrial & Healthcare Only
+            Commercial, Industrial & Healthcare
           </span>
         </div>
         
