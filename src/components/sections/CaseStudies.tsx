@@ -2,6 +2,7 @@ import Image from "next/image"
 import { getPlaceholderImages } from "@/lib/placeholder-images"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export function CaseStudies() {
   const placeholderImages = getPlaceholderImages()
@@ -45,9 +46,9 @@ export function CaseStudies() {
       link: "/case-studies/baptist-health-automated-logic",
     },
     {
-      title: "Westside Plaza",
+      title: "Westside Plaza: Phased Trane Modernization",
       description:
-        "MAC teamed up with Copasetic Mechanical to retrofit an obsolete Trane control system to a new state-of-the-art Automated Logic WebCtrl System across three four-story buildings.",
+        "Executed a multi-phase retrofit, first with Tridium and later a full migration to WebCTRL, giving the client a future-proof system at a manageable pace.",
       image: placeholderImages.find((p) => p.id === "case-study-4"),
       link: "/case-studies/trane-system-retrofit",
     },
@@ -57,46 +58,43 @@ export function CaseStudies() {
     <section id="case-studies" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Proven Results
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
+            Proven Results in Critical Environments
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            We don't just sell controls. We solve complex integration challenges
-            to maximize the value of your building. See how we've helped clients
-            untrap themselves from proprietary systems and achieve long-term
-            operational excellence.
+            We don't just sell controls. We solve complex integration challenges to maximize the value of your building and untrap you from proprietary systems.
           </p>
         </div>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {caseStudies.map((study) => (
             <div
               key={study.title}
-              className="group flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-lg transition-all duration-300 hover:shadow-accent/20 hover:-translate-y-1"
+              className="group flex flex-col overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               {study.image && (
-                <div className="relative h-48 w-full">
+                <div className="relative h-48 w-full overflow-hidden">
                   <Image
                     src={study.image.imageUrl}
                     alt={study.image.description}
                     data-ai-hint={study.image.imageHint}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               )}
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-xl font-semibold mb-2">
-                  <Link href={study.link} className="hover:underline text-primary">
+                <h3 className="text-xl font-semibold mb-2 text-primary">
+                  <Link href={study.link} className="hover:text-accent transition-colors">
                     {study.title}
                   </Link>
                 </h3>
-                <p className="flex-grow text-muted-foreground mb-4">
+                <p className="flex-grow text-muted-foreground mb-4 text-sm">
                   {study.description}
                 </p>
                 <div className="mt-auto">
-                  <Button asChild variant="accent">
-                    <Link href={study.link}>Read More</Link>
-                  </Button>
+                  <Link href={study.link} className="text-sm font-semibold text-accent hover:underline flex items-center gap-1">
+                    Read More <ArrowRight className="h-4 w-4"/>
+                  </Link>
                 </div>
               </div>
             </div>

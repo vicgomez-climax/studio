@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'MAConcepts | Authorized Automated Logic Dealer | Miami Building Automation',
-  description: 'Authorized Dealer of Automated Logic and Carrier Control Expert providing WebCTRL building automation, system integration, and NEBB-certified commissioning in South Florida.',
+  title: 'MAConcepts | Mission-Critical Building Intelligence',
+  description: 'The precision of a Tier 1 Integrator for mission-critical building automation and BAS rescue in South Florida. Factory-authorized Automated Logic Partner & NEBB Certified.',
 };
 
 export default function RootLayout({
@@ -13,12 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Roboto+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
           rel="stylesheet"
         />
       </head>
