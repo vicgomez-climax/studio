@@ -18,7 +18,7 @@ export function Footer() {
              Mechanical Air Concepts | Est. 2002
             </p>
             <p className="text-sm mt-2">
-              Headquartered in Miami, serving South Florida and the Caribbean.
+              Headquartered in Miami, serving South Florida.
             </p>
           </div>
           <div className="md:col-span-2 grid sm:grid-cols-2 gap-8">
