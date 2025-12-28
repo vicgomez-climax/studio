@@ -1,21 +1,30 @@
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Wrench, Cog, Activity } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 const services = [
   {
     icon: <Cog className="h-8 w-8 text-accent" />,
     title: 'Building Automation (WebCTRL)',
-    description: 'As factory-authorized Automated Logic partners, we deliver scalable, open-protocol automation systems that you own and control.',
+    headline: 'Precision Control with Automated Logic',
+    description: "As a factory-authorized Automated Logic dealer, we deploy WebCTRL—the gold standard in healthcare intelligence. We deliver native BACnet solutions with intuitive 3D floor plans and thermographic reporting. No proprietary 'black boxes.' You own your data.",
   },
   {
     icon: <Wrench className="h-8 w-8 text-accent" />,
-    title: 'Retro-Commissioning & BAS Rescue',
-    description: 'We identify and fix root-cause issues in existing systems to optimize performance, not just patch code.',
+    title: 'Retro-Commissioning & Rescue',
+    headline: "We Fix What Others Can't",
+    description: "50% of 'controls problems' are actually mechanical issues. Because we hold a State Mechanical License (CMC), we diagnose the chiller, the dampers, and the physics—not just the code. We rescue 'orphaned' systems to restore peak efficiency.",
   },
   {
     icon: <Activity className="h-8 w-8 text-accent" />,
     title: 'NEBB Testing, Adjusting & Balancing',
-    description: 'NEBB-certified air and hydronic balancing to ensure your systems perform to design specifications.',
+    headline: 'Certified Testing & Compliance (DNV/AHCA)',
+    description: 'In critical environments, airflow is a liability. We provide NEBB-Certified reporting tailored for DNV (NIAHO), ISO 9001, and AHCA audits. From negative pressure isolation rooms to surgical suites, we verify the invisible to ensure you pass surveys without findings.',
   },
 ];
 
@@ -41,7 +50,7 @@ export function Services() {
                 <CardHeader className="flex flex-row items-start gap-4">
                     {service.icon}
                   <div>
-                    <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
+                    <CardTitle className="text-xl text-primary">{service.headline}</CardTitle>
                     <CardDescription className="mt-1">
                       {service.description}
                     </CardDescription>

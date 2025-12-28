@@ -9,6 +9,13 @@ export function CaseStudies() {
 
   const caseStudies = [
     {
+      title: "Baptist Health: Enterprise Standardization",
+      description:
+        "Serving over 67 critical care facilities and medical office buildings. We executed a system-wide migration to Automated Logic, ensuring DNV readiness and unified command-and-control across the entire portfolio.",
+      image: placeholderImages.find((p) => p.id === "baptist-health"),
+      link: "/case-studies/baptist-health-automated-logic",
+    },
+    {
       title: "Lennar HQ: Trane & Pneumatic Retrofit",
       description:
         "Upgraded a hybrid Trane proprietary system with pneumatic VAVs to a modern WebCTRL front-end, preserving the smoke evacuation system and maximizing the owner's existing investment.",
@@ -37,13 +44,6 @@ export function CaseStudies() {
         (p) => p.id === "johnson-controls-integration"
       ),
       link: "/case-studies/8600-building-johnson-n2-integration",
-    },
-    {
-      title: "Baptist Health: Vendor Freedom with Automated Logic",
-      description:
-        "When the owner decided to change vendors, their Automated Logic open system allowed a seamless transition, preserving their entire investment and ensuring continuous support without a learning curve.",
-      image: placeholderImages.find((p) => p.id === "baptist-health"),
-      link: "/case-studies/baptist-health-automated-logic",
     },
     {
       title: "Westside Plaza: Phased Trane Modernization",
