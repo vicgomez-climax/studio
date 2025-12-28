@@ -8,13 +8,16 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 text-primary-foreground/80">
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 text-primary-foreground font-bold text-xl mb-4">
+            <div className="flex items-center gap-2 text-primary-foreground font-bold text-xl mb-2">
               <Building className="h-6 w-6 text-accent" />
               <span className="font-extrabold">
                 MA<span className="font-semibold text-accent/80">Concepts</span>
               </span>
             </div>
             <p className="text-sm">
+             Mechanical Air Concepts | Est. 2002
+            </p>
+            <p className="text-sm mt-2">
               Headquartered in Miami, serving South Florida and the Caribbean.
             </p>
           </div>

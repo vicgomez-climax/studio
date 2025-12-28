@@ -23,14 +23,9 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center">
-            <div>
-              <span className="text-2xl font-[800] tracking-tight text-primary">
-                MA<span className="text-accent">Concepts</span>
-              </span>
-              <p className="hidden md:block text-xs text-muted-foreground mt-0.5">
-                Mechanical Air Concepts | Est. 2002
-              </p>
-            </div>
+            <span className="text-2xl font-[800] tracking-tight text-primary">
+              MA<span className="text-accent">Concepts</span>
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
