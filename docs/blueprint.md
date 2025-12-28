@@ -48,11 +48,11 @@ Headline: "The MAConcepts Standard."
 
 Body: "We don't just install; we validate. Our 4-stage methodology ensures that every project meets the rigorous standards of DNV, AHCA, and ISO 9001."
 
-Step 1: Forensic Audit: We use our nechanical expertise and our testing and balancing experience to analyze the physics of your plant, not just the software.
+Step 1: Forensic Audit: We use our mechanical expertise and our testing and balancing experience to analyze the physics of your plant, not just the software.
 
 Step 2: Strategic Design: Our engineering hub produces open-protocol submittals and CAD riser diagrams.
 
-Step 3: Self-Performed or Subcontracted Execution: We determine the best path based on the owner's project requirements and tailor our execution to those needs
+Step 3: Self-Performed or Subcontracted Execution: We determine the best path based on the owner's project requirements and tailor our execution to those needs.
 
 Step 4: NEBB Validation: We test and balance the system to prove performance before we hand over the keys.
 
@@ -60,7 +60,7 @@ Technology Showcase (Video Section):
 
 Goal: Preserve existing video assets.
 
-Headline: "Powered by NEBB and Automated Logic"
+Headline: "Powered by NEBB and Automated Logic."
 
 Content: "Featuring Automated Logic WebCTRL videos and case studies from several verticals. (Retain existing video embeds highlighting system capabilities and user interfaces)."
 
@@ -78,9 +78,31 @@ Headline: "Design-Assist Resources for Consulting Engineers."
 
 Subhead: "Access our library of open-protocol specifications, riser diagrams, and plant control schematics."
 
-The Gate: "This resource is reserved for our qualified engineering partners. Request Access to view the live design assist portal"
+The Gate: "This resource is reserved for our qualified engineering partners. Request Access to view the live design assist portal."
 
 Protected Content: (Hidden behind request form) "Live Google Data Studio Dashboard & Spec Downloads."
+
+Careers & Recruitment (Application Form):
+
+Headline: "Join the Elite."
+
+Subhead: "We are looking for professionals who understand the physics, not just the software. If you are a Controls Technician, NEBB Professional, or Mechanical Expert, apply below."
+
+Form Strategy: Clean, vertical form layout.
+
+Field 1: Full Name.
+
+Field 2: Email Address.
+
+Field 3: Phone Number.
+
+Field 4 (Dropdown): Discipline (Controls Tech, NEBB Tech, Mechanical, Engineering/Drafting).
+
+Field 5: Years of Experience.
+
+Field 6 (Text Area): "Paste Resume or Brief Professional Summary."
+
+Action: Button "Submit Application" triggers email notification to admin.
 
 Proven Results & Trusted Partners:
 
@@ -104,7 +126,7 @@ Accent Color: Safety Gold (#D97706).
 Typography: 'Inter' sans-serif.
 
 Our Journey to Expertise:
-Founded in 2002, MAConcepts is a specialized, self-performing Building Automation, Testing and Balancing And Commissioning Contractor
+Founded in 2002, MAConcepts is a specialized, self-performing BAS Authority.
 
 Structure: Privately held and owner-operated. We provide direct accountability and long-term stability for mission-critical clients.
 
