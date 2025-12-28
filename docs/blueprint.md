@@ -1,22 +1,49 @@
-# **App Name**: MAConcepts - Building Cruise Control
+App Name: MAConcepts - Mission Critical BAS
+Core Features:
+High-Authority Hero Section:
 
-## Core Features:
+Eyebrow Text: "COMMERCIAL, INDUSTRIAL & HEALTHCARE ONLY" (Small text above headline to filter out residential leads).
 
-- Hero Section with Call to Action: Displays a compelling headline, subhead, and buttons linking to methodology and a smart audit.
-- Services Grid Display: Showcases the company's main services (Building Automation, System Rescue, NEBB TAB) in a grid layout.
-- Mobile Menu: Responsive mobile menu that uses vanilla JavaScript.
-- Scroll Animations: Apply subtle animations as the user scrolls down the page, using vanilla JavaScript.
+Headline: "Mission-Critical Building Intelligence for South Florida."
 
-## Style Guidelines:
+Subhead: "The precision of a Tier 1 Integrator. The grit of a Licensed Mechanical Contractor. Factory-authorized Automated Logic Partner & NEBB Certified."
 
-- Primary color: Deep Navy Blue (#0F172A) for a professional and trustworthy feel.
-- Background color: A desaturated Navy (#1E293B) to complement the primary.
-- Accent color: Safety Gold (#D97706) for CTAs and key highlights to draw attention.
-- Body and headline font: 'Inter' sans-serif for a clean, corporate aesthetic. Note: currently only Google Fonts are supported.
-- Use simple, geometric SVG icons that complement the typography and overall aesthetic.
-- Sticky navigation to allow the header to always be on-screen.
-- Subtle scroll animations to improve user experience.
+Primary Button (Gold): "Schedule a Site Audit"
 
-## Our Journey to Expertise:
+Secondary Button (Outline): "View Healthcare Projects"
 
-Founded in 2002 as an HVAC contractor, over the years Mechanical Air Concepts transformed itself into multiple divisions including controls, testing and balancing, commissioning and engineering. We have diversified our operations with offices in Miami and Monterrey, Mexico.
+Trust Signals: Display Automated Logic and NEBB logos prominently near the fold.
+
+"The Rescue" Value Proposition: A dedicated section titled "Inherited a Broken System?" describing our "Retro-Commissioning & BAS Rescue" capabilities. Focus on fixing root causes, not just code.
+
+Services Grid:
+
+Building Automation (WebCTRL): Highlighting our Automated Logic partnership.
+
+Retro-Commissioning: Optimization for existing, underperforming systems.
+
+NEBB Testing, Adjusting & Balancing: Certified air and water balancing.
+
+Sticky Header: Must keep the navigation and a "Service Dept" button visible at all times while scrolling.
+
+Footer: Must include the text: "Headquartered in Miami, serving South Florida and the Caribbean."
+
+Mobile Menu: Responsive menu for easy navigation on job sites.
+
+Style Guidelines:
+Primary Color: Deep Navy Blue (#0F172A) for Headers and strong typography.
+
+Background Color: Slate White (#F8FAFC). Crucial: Use a light background to convey clinical precision and engineering cleanliness. Avoid full dark mode.
+
+Accent Color: Safety Gold (#D97706) for high-impact buttons (CTAs).
+
+Typography: 'Inter' sans-serif. Clean, bold, and legible.
+
+Aesthetic: "Silicon Valley Clean." Use ample white space, geometric alignments, and technical SVG icons. No clutter.
+
+Our Journey to Expertise:
+Founded in 2002, MAConcepts is a privately held, owner-operated firm—not a franchise or PE-backed conglomerate. We have evolved from a mechanical contractor into a premier BAS Integrator, bridging the gap between mechanical physics and digital controls.
+
+Global Engineering Speed: We operate a dedicated Engineering Design Center in Monterrey, Mexico, enabling 24-hour engineering cycles supported by our HQ in Miami.
+
+Compliance: Specialized in JCAHO/AHCA compliant environments for healthcare and critical infrastructure.
