@@ -16,11 +16,11 @@ export function CaseStudies() {
       link: "/case-studies/baptist-health-automated-logic",
     },
     {
-      title: "Lennar HQ: Trane & Pneumatic Retrofit",
+      title: "Government Authority: M-DCPS & Broward County",
       description:
-        "Upgraded a hybrid Trane proprietary system with pneumatic VAVs to a modern WebCTRL front-end, preserving the smoke evacuation system and maximizing the owner's existing investment.",
-      image: placeholderImages.find((p) => p.id === "case-study-1"),
-      link: "/case-studies/5505-blue-lagoon-drive",
+        "Multi-year prime holder for Miami-Dade County Public Schools and Broward County Government. Trusted to maintain the environmental health of South Florida's largest public infrastructure portfolios.",
+      image: placeholderImages.find((p) => p.id === "case-study-2"),
+      link: "/case-studies/florida-memorial-university-siemens-integration",
     },
     {
       title: "355 Alhambra: Siemens System Rescue",
@@ -29,29 +29,6 @@ export function CaseStudies() {
       image: placeholderImages.find((p) => p.id === "siemens-integration"),
       link: "/case-studies/355-alhambra-siemens-retrofit",
     },
-    {
-      title: "Florida Memorial University: Campus-Wide Integration",
-      description:
-        "Unified 35 buildings running Siemens Apogee into a single, web-accessible WebCTRL interface, eliminating single-user limitations and providing a comprehensive campus-wide view.",
-      image: placeholderImages.find((p) => p.id === "case-study-2"),
-      link: "/case-studies/florida-memorial-university-siemens-integration",
-    },
-    {
-      title: "8600 Building: Johnson Controls N2 Integration",
-      description:
-        "Preserved the owner's investment in Johnson Controls N2 hardware by integrating 63 VAVs and multiple RTUs into WebCTRL, enabling a gradual upgrade path and modern features.",
-      image: placeholderImages.find(
-        (p) => p.id === "johnson-controls-integration"
-      ),
-      link: "/case-studies/8600-building-johnson-n2-integration",
-    },
-    {
-      title: "Westside Plaza: Phased Trane Modernization",
-      description:
-        "Executed a multi-phase retrofit, first with Tridium and later a full migration to WebCTRL, giving the client a future-proof system at a manageable pace.",
-      image: placeholderImages.find((p) => p.id === "case-study-4"),
-      link: "/case-studies/trane-system-retrofit",
-    },
   ]
 
   return (
@@ -59,13 +36,13 @@ export function CaseStudies() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
-            Proven Results in Critical Environments
+            Proven Results & Trusted Partners
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
             We don't just sell controls. We solve complex integration challenges to maximize the value of your building and untrap you from proprietary systems.
           </p>
         </div>
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
           {caseStudies.map((study) => (
             <div
               key={study.title}

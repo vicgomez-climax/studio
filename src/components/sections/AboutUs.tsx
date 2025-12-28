@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import { getPlaceholderImages } from '@/lib/placeholder-images';
-import { Badge } from '@/components/ui/badge';
-import { MapPin } from 'lucide-react';
 
 export function AboutUs() {
   const aboutImage = getPlaceholderImages().find((p) => p.id === 'hero-background');
@@ -30,13 +28,10 @@ export function AboutUs() {
               Our Journey to Expertise
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Founded in 2002, MAConcepts is a privately held, owner-operated firm—not a franchise or PE-backed conglomerate. We have evolved from a mechanical contractor into a premier BAS Integrator, bridging the critical gap between mechanical physics and digital controls.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-                This dual-expertise is our core strength. We understand how a change in code affects a valve, and how a stuck valve affects the code. This holistic view allows us to solve complex problems that pure-play controls integrators or mechanical contractors often miss.
+             Founded in 2002, MAConcepts is a specialized, self-performing BAS Authority. As a privately held and owner-operated firm, we provide direct accountability and long-term stability for our mission-critical clients.
             </p>
              <p className="text-muted-foreground leading-relaxed">
-                We specialize in JCAHO/AHCA compliant environments for healthcare and other mission-critical infrastructure where failure is not an option.
+                Our dedicated Design Center in Monterrey, Mexico allows for 24-hour engineering cycles, accelerating project timelines and ensuring meticulous quality control. We are specialists in DNV/AHCA/ISO 9001 environments, where precision and compliance are paramount.
             </p>
           </div>
         </div>

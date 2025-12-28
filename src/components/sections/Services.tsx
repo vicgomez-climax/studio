@@ -1,30 +1,26 @@
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Wrench, Cog, Activity } from 'lucide-react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Zap, Thermometer, ShieldCheck, Construction } from 'lucide-react';
 
-const services = [
+const advantages = [
   {
-    icon: <Cog className="h-8 w-8 text-accent" />,
-    title: 'Building Automation (WebCTRL)',
-    headline: 'Precision Control with Automated Logic',
-    description: "As a factory-authorized Automated Logic dealer, we deploy WebCTRL—the gold standard in healthcare intelligence. We deliver native BACnet solutions with intuitive 3D floor plans and thermographic reporting. No proprietary 'black boxes.' You own your data.",
+    icon: <Zap className="h-8 w-8 text-accent" />,
+    title: 'Self-Performed Low Voltage',
+    description: "We own our conduit and wiring. We control the schedule.",
   },
   {
-    icon: <Wrench className="h-8 w-8 text-accent" />,
-    title: 'Retro-Commissioning & Rescue',
-    headline: "We Fix What Others Can't",
-    description: "50% of 'controls problems' are actually mechanical issues. Because we hold a State Mechanical License (CMC), we diagnose the chiller, the dampers, and the physics—not just the code. We rescue 'orphaned' systems to restore peak efficiency.",
+    icon: <Thermometer className="h-8 w-8 text-accent" />,
+    title: 'Mechanical Physics (CMC)',
+    description: "We program for thermodynamics, not just data points. We speak the language of your Mechanical Prime.",
   },
   {
-    icon: <Activity className="h-8 w-8 text-accent" />,
-    title: 'NEBB Testing, Adjusting & Balancing',
-    headline: 'Certified Testing & Compliance (DNV/AHCA)',
-    description: 'In critical environments, airflow is a liability. We provide NEBB-Certified reporting tailored for DNV (NIAHO), ISO 9001, and AHCA audits. From negative pressure isolation rooms to surgical suites, we verify the invisible to ensure you pass surveys without findings.',
+    icon: <Construction className="h-8 w-8 text-accent" />,
+    title: 'Automated Logic',
+    description: 'Factory-authorized WebCTRL deployment.',
+  },
+  {
+    icon: <ShieldCheck className="h-8 w-8 text-accent" />,
+    title: 'Institutional NEBB',
+    description: 'Certified validation for Government & Healthcare portfolios.',
   },
 ];
 
@@ -35,24 +31,21 @@ export function Services() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary">
-              Inherited a Broken System?
+              Single-Source Accountability.
             </h2>
             <p className="text-lg text-muted-foreground">
-              You're not alone. Many facilities are trapped by proprietary code, failing controllers, and underperforming systems. We don't just apply temporary fixes—we perform a <strong className="text-primary">"BAS Rescue."</strong> Our mechanical and controls expertise allows us to diagnose the root cause, whether it's in the code or the coils.
-            </p>
-             <p className="text-lg text-muted-foreground">
-              Our goal is to untrap the owner, providing a clear path to an open, efficient, and reliable building automation system.
+              We eliminate the scope gaps between trades. As a Licensed Low Voltage & Mechanical Contractor, we self-perform the critical path of your project:
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-6">
-            {services.map((service) => (
-              <Card key={service.title} className="bg-background shadow-md hover:shadow-lg transition-shadow">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {advantages.map((advantage) => (
+              <Card key={advantage.title} className="bg-background shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader className="flex flex-row items-start gap-4">
-                    {service.icon}
+                    {advantage.icon}
                   <div>
-                    <CardTitle className="text-xl text-primary">{service.headline}</CardTitle>
+                    <CardTitle className="text-xl text-primary">{advantage.title}</CardTitle>
                     <CardDescription className="mt-1">
-                      {service.description}
+                      {advantage.description}
                     </CardDescription>
                   </div>
                 </CardHeader>

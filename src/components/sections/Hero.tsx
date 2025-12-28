@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { AutomatedLogicLogo } from '../logos/AutomatedLogicLogo';
+import { NEBBLogo } from '../logos/NEBBLogo';
 
 export function Hero() {
   return (
@@ -8,7 +10,7 @@ export function Hero() {
         
         <div className="mb-4">
           <span className="text-sm font-bold tracking-widest text-primary/60 uppercase">
-            Commercial, Industrial & Healthcare
+            COMMERCIAL, INDUSTRIAL & HEALTHCARE
           </span>
         </div>
         
@@ -17,10 +19,14 @@ export function Hero() {
         </h1>
         
         <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-          The precision of a Tier 1 Integrator. The grit of a Licensed Mechanical Contractor. Factory-authorized Automated Logic Partner & NEBB Certified.
+          The precision of a Tier 1 Integrator. The physics-based expertise of a Licensed Mechanical Contractor. Self-performing installs with zero reliance on subcontractors.
         </p>
+
+        <div className="mt-8">
+            <p className="font-semibold text-primary/80">24/7 Rapid Response for Critical Environments</p>
+        </div>
         
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button asChild size="lg" variant="accent">
             <Link href="#contact">Schedule a Site Audit</Link>
           </Button>
@@ -29,10 +35,9 @@ export function Hero() {
           </Button>
         </div>
         
-        <div className="mt-16">
-          <p className="text-sm text-muted-foreground">
-            Authorized Dealer of Automated Logic | NEBB Certified
-          </p>
+        <div className="mt-16 flex justify-center items-center gap-x-8 gap-y-4 flex-wrap">
+            <AutomatedLogicLogo className="h-12 text-primary/70" />
+            <NEBBLogo className="h-14 text-primary/70" />
         </div>
       </div>
     </section>
