@@ -34,21 +34,28 @@ export function Hero() {
           </Button>
         </div>
         
-        <div className="mt-16 flex justify-center items-center gap-x-8 md:gap-x-12 gap-y-4 flex-wrap">
-            <Image 
-              src="/images/Authorized AutomatedLogic-for-white.png"
-              alt="Automated Logic Authorized Dealer"
-              width={200}
-              height={55}
-              className="h-14 w-auto object-contain"
-            />
-            <Image
-              src="/images/NEBB.png"
-              alt="NEBB Certified Firm"
-              width={100}
-              height={100}
-              className="h-16 w-auto object-contain"
-            />
+        <div className="mt-16 text-center">
+            <p className="text-sm text-muted-foreground mb-4">Authorized Dealer of</p>
+            <div className="flex justify-center items-center gap-x-8 md:gap-x-12 gap-y-4 flex-wrap">
+                <Link href="https://www.automatedlogic.com" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
+                    <Image 
+                      src="/images/Authorized AutomatedLogic-for-white.png"
+                      alt="Automated Logic Authorized Dealer"
+                      width={220}
+                      height={60}
+                      className="h-16 w-auto object-contain"
+                    />
+                </Link>
+                <Link href="https://www.nebb.org" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-80">
+                    <Image
+                      src="/images/NEBB.png"
+                      alt="NEBB Certified Firm"
+                      width={110}
+                      height={110}
+                      className="h-20 w-auto object-contain"
+                    />
+                </Link>
+            </div>
         </div>
       </div>
     </section>
