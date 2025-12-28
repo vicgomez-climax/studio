@@ -2,7 +2,6 @@ import { Building, Mail, Phone } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-12">
@@ -45,7 +44,7 @@ export function Footer() {
         </div>
         <Separator className="my-8 bg-primary-foreground/20" />
         <p className="text-center text-sm text-primary-foreground/60">
-          &copy; {currentYear} MAConcepts. All rights reserved.
+          &copy; 2026 MAConcepts. All rights reserved.
         </p>
       </div>
     </footer>
