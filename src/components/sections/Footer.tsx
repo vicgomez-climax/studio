@@ -38,8 +38,7 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold text-primary-foreground mb-4">Our Offices</h3>
               <div className="space-y-2 text-sm">
-                <p><strong>HQ:</strong> Miami, USA</p>
-                <p><strong>Engineering:</strong> Monterrey, Mexico</p>
+                <p>Our offices: Miami, Florida, USA; Monterrey, Nuevo León, Mexico</p>
               </div>
             </div>
           </div>
