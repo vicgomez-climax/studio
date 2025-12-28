@@ -1,10 +1,10 @@
+App Name: MAConcepts - Institutional Authority
+Core Features:
 Sticky Header with Wordmark Logo:
 
-Logo Strategy: Do NOT use an image file. Use a CSS-styled text wordmark: "MAConcepts" in 'Inter' Extra Bold (Navy Blue), with the 'C' or 'Concepts' in Safety Gold.
+Logo Strategy: CSS-styled text wordmark: "MAConcepts" in 'Inter' Extra Bold (Navy Blue), with 'Concepts' in Safety Gold.
 
-Tagline: Small text below logo: "Mechanical Air Concepts | Est. 2002"
-
-Nav Items: Services, Methodology, Healthcare Projects, Contact.
+Tagline: "Mechanical | Controls | NEBB | Commissioning"
 
 Call to Action: "Service Dept: (Phone Number)" visible at all times.
 
@@ -14,50 +14,58 @@ Eyebrow Text: "COMMERCIAL, INDUSTRIAL & HEALTHCARE ONLY"
 
 Headline: "Mission-Critical Building Intelligence for South Florida."
 
-Subhead: "The precision of a Tier 1 Integrator. The mechanical authority of a Licensed Contractor. Factory-authorized Automated Logic Partner & NEBB Certified."
+Subhead: "The precision of a Tier 1 Integrator. The physics-based expertise of a Licensed Mechanical Contractor. Self-performing installs with zero reliance on subcontractors."
 
-Assurance Tag: "24/7 Rapid Response for Critical Environments" (displayed prominently).
+Assurance Tag: "24/7 Rapid Response for Critical Environments"
 
 Primary Button (Gold): "Schedule a Site Audit"
 
 Secondary Button (Outline): "View Healthcare Projects"
 
-Trust Signals: Display Automated Logic and NEBB logos (or text labels) prominently near the fold.
+Trust Signals: Automated Logic (WebCTRL) & NEBB Logos.
 
-"The Rescue" Value Proposition:
+The "Turnkey Advantage" (Vertical Integration):
 
-Headline: "Inherited a Broken System?"
+Headline: "Single-Source Accountability."
 
-Body: "50% of 'controls problems' are actually mechanical issues. Because we hold a State Mechanical License (CMC), we diagnose the chiller, the dampers, and the physics—not just the code. We rescue 'orphaned' systems to restore peak efficiency."
+Body: "We eliminate the scope gaps between trades. As a Licensed Low Voltage & Mechanical Contractor, we self-perform the critical path of your project:"
 
-Services Grid (DNV/ISO Focused):
+Bullet 1: Self-Performed Low Voltage: We own our conduit and wiring. We control the schedule.
 
-Building Automation (WebCTRL): "As a factory-authorized Automated Logic dealer, we deploy WebCTRL—the gold standard in healthcare intelligence. Native BACnet, 3D floor plans, and thermographic reporting. No proprietary 'black boxes.' You own your data."
+Bullet 2: Mechanical Physics (CMC): We program for thermodynamics, not just data points. We speak the language of your Mechanical Prime.
 
-Retro-Commissioning: "Optimization for existing, underperforming systems. We fix the root cause, not the symptom."
+Bullet 3: Automated Logic: Factory-authorized WebCTRL deployment.
 
-NEBB Testing, Adjusting & Balancing: "Certified reporting tailored for DNV (NIAHO), ISO 9001, and AHCA audits. From negative pressure isolation rooms to surgical suites, we verify the invisible to ensure you pass surveys without findings."
+Bullet 4: Institutional NEBB: Certified validation for Government & Healthcare portfolios.
 
-Enterprise Scale Case Study:
+Services Grid (Expanded for Gov/Edu):
 
-Focus: Baptist Health / Enterprise Healthcare.
+Building Automation (WebCTRL): "Gold standard healthcare intelligence. Native BACnet, 3D floor plans. Open protocol architecture—no proprietary black boxes."
 
-Key Metrics: "Serving over 67 critical care facilities. System-wide migration to Automated Logic for unified command-and-control and DNV readiness."
+NEBB Testing & Commissioning: "The region's trusted authority. Authorized NEBB Provider for Miami-Dade County Public Schools and Broward County Government. We bring this same institutional rigor to your project."
+
+Retro-Commissioning & Rescue: "We fix root causes. We rescue orphaned systems by diagnosing the mechanical physics and software logic simultaneously."
+
+Proven Results & Trusted Partners:
+
+Healthcare Case Study: "Baptist Health: Serving 67 critical care facilities with system-wide Automated Logic migration and DNV readiness."
+
+Government Authority: "Multi-year prime holder for M-DCPS and Broward County. Trusted to maintain the environmental health of South Florida's largest public infrastructure portfolios."
 
 Style Guidelines:
-Primary Color: Deep Navy Blue (#0F172A) for Headers and strong typography.
+Primary Color: Deep Navy Blue (#0F172A).
 
-Background Color: Slate White (#F8FAFC). Crucial: Use a light background to convey clinical precision and engineering cleanliness. Avoid full dark mode.
+Background Color: Slate White (#F8FAFC).
 
-Accent Color: Safety Gold (#D97706) for high-impact buttons (CTAs).
+Accent Color: Safety Gold (#D97706).
 
-Typography: 'Inter' sans-serif. Clean, bold, and legible.
-
-Aesthetic: "Silicon Valley Clean." Use ample white space, geometric alignments, and technical SVG icons.
+Typography: 'Inter' sans-serif.
 
 Our Journey to Expertise:
-Founded in 2002, MAConcepts (Mechanical Air Concepts) is a privately held, owner-operated firm. We have evolved from a mechanical contractor into a premier BAS Integrator.
+Founded in 2002, MAConcepts is a specialized, self-performing BAS Authority.
 
-Global Engineering Speed: We operate a dedicated Engineering Design Center in Monterrey, Mexico, enabling 24-hour engineering cycles supported by our HQ in Miami.
+Structure: Privately held and owner-operated. We provide direct accountability and long-term stability for mission-critical clients.
 
-Compliance: Specialized in DNV/AHCA compliant environments for healthcare and critical infrastructure.
+Global Engineering: Dedicated Design Center in Monterrey, Mexico for 24-hour engineering cycles.
+
+Compliance: Specialized in DNV/AHCA/ISO 9001 environments.
