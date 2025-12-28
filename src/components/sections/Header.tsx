@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Building } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -21,15 +21,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm border-b border-border/80">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-primary font-bold text-xl"
-          >
-            <Building className="h-6 w-6 text-accent" />
-            <span className="font-extrabold text-primary">
-              MA<span className="font-semibold text-primary/80">Concepts</span>
-            </span>
+        <div className="flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center">
+            <div>
+              <span className="text-2xl font-[800] tracking-tight text-primary">
+                MA<span className="text-accent">Concepts</span>
+              </span>
+              <p className="hidden md:block text-xs text-muted-foreground mt-0.5">
+                Mechanical Air Concepts | Est. 2002
+              </p>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
@@ -68,7 +69,7 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          'md:hidden absolute top-16 left-0 w-full bg-background shadow-lg transition-transform duration-300 ease-in-out',
+          'md:hidden absolute top-[80px] left-0 w-full bg-background shadow-lg transition-transform duration-300 ease-in-out',
           isMenuOpen ? 'translate-y-0' : '-translate-y-[150%]'
         )}
       >
