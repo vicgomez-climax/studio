@@ -104,7 +104,7 @@ Accent Color: Safety Gold (#D97706).
 Typography: 'Inter' sans-serif.
 
 Our Journey to Expertise:
-Founded in 2002, MAConcepts is a specialized, self-performing BAS Authority.
+Founded in 2002, MAConcepts is a specialized, self-performing Building Automation, Testing and Balancing And Commissioning Contractor
 
 Structure: Privately held and owner-operated. We provide direct accountability and long-term stability for mission-critical clients.
 
