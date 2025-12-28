@@ -1,6 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Wrench, Cog, Activity, Server } from 'lucide-react';
-import Link from 'next/link';
+import { Wrench, Cog, Activity } from 'lucide-react';
 
 const services = [
   {
