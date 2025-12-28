@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { AutomatedLogicLogo } from '../logos/AutomatedLogicLogo';
-import { NEBBLogo } from '../logos/NEBBLogo';
+import Image from 'next/image';
 
 export function Hero() {
   return (
@@ -35,9 +34,21 @@ export function Hero() {
           </Button>
         </div>
         
-        <div className="mt-16 flex justify-center items-center gap-x-8 gap-y-4 flex-wrap">
-            <AutomatedLogicLogo className="h-12 text-primary/70" />
-            <NEBBLogo className="h-14 text-primary/70" />
+        <div className="mt-16 flex justify-center items-center gap-x-8 md:gap-x-12 gap-y-4 flex-wrap">
+            <Image 
+              src="/images/Authorized AutomatedLogic-for-white.png"
+              alt="Automated Logic Authorized Dealer"
+              width={200}
+              height={55}
+              className="h-14 w-auto object-contain"
+            />
+            <Image
+              src="/images/NEBB.png"
+              alt="NEBB Certified Firm"
+              width={100}
+              height={100}
+              className="h-16 w-auto object-contain"
+            />
         </div>
       </div>
     </section>
